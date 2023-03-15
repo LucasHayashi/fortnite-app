@@ -1,0 +1,48 @@
+html,
+body {
+  height: 100%;
+}
+
+.drawer-container {
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .sidenav {
+    padding: 20px;
+
+    .active-link {
+      color: #69f0ae;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 87%;
+    margin: 1.5rem;
+
+    .mat-card {
+      width: 100%;
+      box-sizing: border-box;
+      /* inclui padding no tamanho total do elemento */
+      flex: 1;
+      /* ocupa todo o espaço restante no contêiner flexível */
+      padding: 24px;
+
+      /* define o padding interno do cartão */
+      &-content {
+        margin: 0 auto;
+      }
+
+      .mat-card-content {
+        height: 100%;
+        overflow-y: auto;
+      }
+    }
+  }
+
+}

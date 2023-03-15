@@ -1,0 +1,13 @@
+:root {
+    --descriptionSize: 512px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+p {
+    max-width: var(--descriptionSize);
+    margin-top: 12px;
+}

@@ -1,0 +1,19 @@
+.banners-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .banner {
+        margin: 1.25rem;
+
+        .image {
+            max-width: 128px;
+            cursor: pointer;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}

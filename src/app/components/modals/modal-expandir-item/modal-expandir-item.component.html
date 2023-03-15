@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+    <div class="header-container">
+        <div class="info-section">
+            <div class="info-title">Descrição</div>
+            <div class="info-line">{{data.description}}</div>
+        </div>
+        <div class="info-section">
+            <div class="info-title">Lançamento</div>
+            <div class="info-line">{{data.introduction?.text}}</div>
+            <div class="info-line">Adicionado em {{data.added | date: 'dd/MM/yyyy HH:mm:ss' }}</div>
+        </div>
+        <div class="info-section">
+            <div class="info-title">Tipo</div>
+            <div class="info-line">{{data.type?.displayValue}}</div>
+        </div>
+    </div>
+    <div class="image-container">
+        <div class="item-image" [ngStyle]="{'--gradiente-colors': getBackgroundRadial(data.series?.colors)}">
+            <img src="{{data.images?.featured}}" *ngIf="data.images?.featured; else icon">
+        </div>
+        <ng-template #icon>
+            <img src="{{data.images?.icon}}">
+        </ng-template>
+    </div>
+    <div class="info-section" *ngIf="data.variants">
+        <div class="info-title">Variações</div>
+        <div class="variacao-container" *ngFor="let variacao of data.variants">
+            <h3 class="tipo-variacao">{{variacao.type}}</h3>
+            <div class="variacoes-imagem-container">
+                <div class="images-variacao" *ngFor="let variacaoImage of variacao.options">
+                    <mat-chip>{{variacaoImage.name}}</mat-chip>
+                    <div class="item-image" [ngStyle]="{'--gradiente-colors': getBackgroundRadial(data.series?.colors)}">
+                        <img src="{{variacaoImage.image}}" alt="{{variacaoImage.name}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

@@ -1,0 +1,57 @@
+.container {
+    max-width: 960px;
+
+    .mat-progress-spinner {
+        margin: 20px auto;
+    }
+
+    .motds,
+    .message {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 5px;
+
+        div+div {
+            margin: 10px 0;
+        }
+
+        &-info {
+            flex: 1 1 300px;
+
+            .title {
+                font-size: 1.5rem;
+                color: #69f0ae;
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    height: 1rem;
+                    width: 6px;
+                    margin-right: 0.5rem;
+                    background-color: #69f0ae;
+                }
+            }
+
+            .sub-title {
+                font-size: 1.05rem;
+                color: #69f0ae;
+            }
+
+            .body {
+                line-height: 150%;
+            }
+        }
+
+        &-image {
+            max-width: 480px;
+            cursor: pointer;
+
+            img {
+                display: block;
+                max-width: 100%;
+            }
+        }
+    }
+}

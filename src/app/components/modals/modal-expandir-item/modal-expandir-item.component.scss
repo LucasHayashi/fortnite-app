@@ -1,0 +1,36 @@
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.item-image {
+    background: radial-gradient(circle, var(--gradiente-colors));
+    width: fit-content;
+    img {
+        display: block;
+        max-width: 100%;
+    }
+}
+
+.info-section {
+    margin: 10px 0;
+    .info-title {
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: #69f0ae;
+    }
+}
+
+.variacao-container {
+    .tipo-variacao {
+        margin: 12px 0;
+    }
+
+    .variacoes-imagem-container {
+        display: flex;
+        flex-wrap: wrap;
+        .item-image {
+            margin: 12px 12px 12px 0;
+        }
+    }
+}

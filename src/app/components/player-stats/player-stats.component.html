@@ -1,0 +1,41 @@
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()" class="formulario">
+    <div class="form-field">
+        <mat-form-field class="no-padding buscar-jogador-form-field">
+            <mat-label>Nome do jogador</mat-label>
+            <input matInput type="text" formControlName="name" (keydown.enter)="onSubmit()" required>
+            <mat-hint>Digite o nome de um jogador</mat-hint>
+            <mat-error *ngIf="playerForm.get('name')?.hasError('required')">
+                O nome é <strong>obrigatório</strong>
+            </mat-error>
+            <mat-error *ngIf="playerForm.get('name')?.hasError('minlength')">
+                O nome do jogador deve possuir <strong>3 ou mais caractéres</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="form-field">
+        <mat-radio-group aria-label="Selecione a plataforma" formControlName="accountType">
+            <mat-radio-button value="epic">EPIC</mat-radio-button>
+            <mat-radio-button value="psn">PSN</mat-radio-button>
+            <mat-radio-button value="xlb">Xbox</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <button mat-raised-button color="accent" type="submit">Buscar</button>
+</form>
+<mat-progress-spinner mode="indeterminate" color="accent" *ngIf="isLoading"
+    class="mat-progress-spinner"></mat-progress-spinner>
+<ng-container *ngIf="playerStats$ | async as playerStats">
+    <mat-card>
+        <mat-card-content>
+            <h1 class="name">{{playerStats.account?.name}}</h1>
+            <div class="nivel">Nível {{playerStats.battlePass?.level}}</div>
+            <mat-progress-bar mode="determinate" [color]="'accent'"
+                value="{{playerStats.battlePass?.progress}}"></mat-progress-bar>
+        </mat-card-content>
+    </mat-card>
+    <mat-accordion class="mat-accordion">
+        <app-mode-panel [playerStats]="playerStats.stats?.all?.overall" playerMode="Geral" [expanded]="true"></app-mode-panel>
+        <app-mode-panel [playerStats]="playerStats.stats?.all?.solo" playerMode="Solo"></app-mode-panel>
+        <app-mode-panel [playerStats]="playerStats.stats?.all?.duo" playerMode="Duo"></app-mode-panel>
+        <app-mode-panel [playerStats]="playerStats.stats?.all?.squad" playerMode="Squad"></app-mode-panel>
+    </mat-accordion>
+</ng-container>

@@ -1,0 +1,27 @@
+<div class="container">
+    <ng-container *ngIf="noticias$ | async as noticias">
+        <ng-container *ngFor="let motds of noticias.motds">
+            <div class="motds">
+                <div class="motds-info">
+                    <div class="title">{{motds.tabTitle}}</div>
+                    <div class="sub-title">{{motds.title}}</div>
+                    <div class="body">{{motds.body}}</div>
+                </div>
+                <div class="motds-image">
+                    <img src="{{motds.tileImage}}" alt="{{motds.title}}" (click)="expandirImagem($event)">
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let message of noticias.messages">
+            <div class="message">
+                <div class="message-info">
+                    <div class="title">{{message.title}}</div>
+                    <div class="body">{{message.body}}</div>
+                </div>
+                <div class="message-image">
+                    <img src="{{message.image}}" alt="{{message.title}}" (click)="expandirImagem($event)">
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
