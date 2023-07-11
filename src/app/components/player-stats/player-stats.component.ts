@@ -37,8 +37,13 @@ export class PlayerStatsComponent {
         delay(500),
         map((res) => res.data),
         catchError((error: HttpErrorResponse) => {
-          this._snackBar.open("Nenhum jogador encontrado", "OK", {
-            duration: 1000,
+          let errorMessage = error.message;
+
+          if (error.status === 401 ) {
+            errorMessage = "Fazer o login em https://dash.fortnite-api.com/account para renovar o token!";
+          }
+          this._snackBar.open(errorMessage, "OK", {
+            duration: 3000,
           })
           throw new Error(error.message);
         }),
