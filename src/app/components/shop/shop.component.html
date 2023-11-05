@@ -1,0 +1,17 @@
+<ng-container *ngIf="shop$ | async as shop; else loading">
+    <h1 class="main-text">{{ shop?.featured?.name }} - {{ shop?.date | date: 'dd/MM/yyyy HH:mm:ss' }}</h1>
+    <div class="shop-container">
+        <ng-container *ngFor="let itemLoja of shop?.featured?.entries">
+            <ng-container *ngIf="itemLoja.bundle?.name; else showItems">
+                <app-bundle [bundle]="itemLoja" />
+            </ng-container>
+            <ng-template #showItems>
+                <app-item [item]="itemLoja" />
+            </ng-template>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</ng-template>

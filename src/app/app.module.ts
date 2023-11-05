@@ -18,6 +18,9 @@ import { PlayerStatsComponent } from './components/player-stats/player-stats.com
 import { PercentFormatPipe } from './pipes/percent-format.pipe';
 import { ModePanelComponent } from './components/player-stats/mode-panel/mode-panel.component';
 import { MapComponent } from './components/map/map.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { BundleComponent } from './components/shop/bundle/bundle.component';
+import { ItemComponent } from './components/shop/item/item.component';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -37,6 +40,9 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     PercentFormatPipe,
     ModePanelComponent,
     MapComponent,
+    ShopComponent,
+    BundleComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

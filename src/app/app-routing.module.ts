@@ -5,11 +5,12 @@ import { BuscarItensComponent } from './components/buscar-itens/buscar-itens.com
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { PlayerStatsComponent } from './components/player-stats/player-stats.component';
 import { MapComponent } from './components/map/map.component';
+import { ShopComponent } from './components/shop/shop.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'player-stats',
+    component: ShopComponent,
     pathMatch: 'full'
   },
   {

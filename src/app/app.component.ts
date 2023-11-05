@@ -10,7 +10,8 @@ import { MatDrawerMode } from '@angular/material/sidenav';
 export class AppComponent {
   title = 'fornite-app';
   navItems = [
-    { link: 'player-stats', title: 'Player Stats', icon: 'sports_esports' },
+    { link: '', title: 'Shopping', icon: 'storefront' },
+    { link: 'player-stats', title: 'Buscar Jogador', icon: 'sports_esports' },
     { link: 'buscar-itens', title: 'Buscar Itens', icon: 'search' },
     { link: 'noticias', title: 'Notícias', icon: 'newspaper' },
     { link: 'map', title: 'Mapa', icon: 'map' },
