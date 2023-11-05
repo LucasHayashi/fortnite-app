@@ -1,0 +1,9 @@
+<ng-container *ngIf="map$ | async as map; else loading">
+    <div class="map-container">
+        <img src={{map.images.pois}} alt="Mapa do Fortnite">
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</ng-template>

@@ -13,6 +13,7 @@ export class AppComponent {
     { link: 'player-stats', title: 'Player Stats', icon: 'sports_esports' },
     { link: 'buscar-itens', title: 'Buscar Itens', icon: 'search' },
     { link: 'noticias', title: 'Notícias', icon: 'newspaper' },
+    { link: 'map', title: 'Mapa', icon: 'map' },
     { link: 'banners', title: 'Banners', icon: 'interests'},
   ]
 

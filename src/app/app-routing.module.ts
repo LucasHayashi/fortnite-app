@@ -4,6 +4,7 @@ import { BannersComponent } from './components/banners/banners.component';
 import { BuscarItensComponent } from './components/buscar-itens/buscar-itens.component';
 import { NoticiasComponent } from './components/noticias/noticias.component';
 import { PlayerStatsComponent } from './components/player-stats/player-stats.component';
+import { MapComponent } from './components/map/map.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'noticias',
     component: NoticiasComponent,
+    pathMatch: "full"
+  },
+  {
+    path: 'map',
+    component: MapComponent,
     pathMatch: "full"
   },
   {

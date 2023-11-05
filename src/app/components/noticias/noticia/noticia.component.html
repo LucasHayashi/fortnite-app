@@ -1,6 +1,6 @@
 <div class="container">
-    <ng-container *ngIf="noticias$ | async as noticias">
-        <ng-container *ngFor="let motds of noticias.motds">
+    <ng-container>
+        <ng-container *ngFor="let motds of noticia.motds">
             <div class="motds">
                 <div class="motds-info">
                     <div class="title">{{motds.tabTitle}}</div>
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </ng-container>
-        <ng-container *ngFor="let message of noticias.messages">
+        <ng-container *ngFor="let message of noticia.messages">
             <div class="message">
                 <div class="message-info">
                     <div class="title">{{message.title}}</div>

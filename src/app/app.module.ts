@@ -17,6 +17,7 @@ import { ModalExpandirItemComponent } from './components/modals/modal-expandir-i
 import { PlayerStatsComponent } from './components/player-stats/player-stats.component';
 import { PercentFormatPipe } from './pipes/percent-format.pipe';
 import { ModePanelComponent } from './components/player-stats/mode-panel/mode-panel.component';
+import { MapComponent } from './components/map/map.component';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -35,6 +36,7 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     PlayerStatsComponent,
     PercentFormatPipe,
     ModePanelComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
