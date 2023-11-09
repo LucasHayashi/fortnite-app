@@ -21,6 +21,7 @@ import { MapComponent } from './components/map/map.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { BundleComponent } from './components/shop/bundle/bundle.component';
 import { ItemComponent } from './components/shop/item/item.component';
+import { ModalExpandirItemsComponent } from './components/modals/modal-expandir-items/modal-expandir-items.component';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -42,7 +43,8 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     MapComponent,
     ShopComponent,
     BundleComponent,
-    ItemComponent
+    ItemComponent,
+    ModalExpandirItemsComponent,
   ],
   imports: [
     BrowserModule,

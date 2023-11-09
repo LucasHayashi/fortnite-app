@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Entry } from 'src/app/interfaces/shop';
+import { MatDialog } from '@angular/material/dialog';
+import { Entry, Item } from 'src/app/interfaces/shop';
+import { ModalExpandirItemsComponent } from '../../modals/modal-expandir-items/modal-expandir-items.component';
 
 @Component({
   selector: 'app-bundle',
@@ -7,9 +9,14 @@ import { Entry } from 'src/app/interfaces/shop';
   styleUrls: ['./bundle.component.scss']
 })
 export class BundleComponent {
-  @Input() bundle : Entry;
+  @Input() bundle: Entry;
 
-  ngOnInit() {
-    console.log(this.bundle)
+  constructor(private _dialog: MatDialog) { }
+
+  expandirPacote(bundle: Item[]) {
+    console.log(bundle);
+    this._dialog.open(ModalExpandirItemsComponent, {
+      data: bundle
+    })
   }
 }
