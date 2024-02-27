@@ -19,7 +19,6 @@ import { PercentFormatPipe } from './pipes/percent-format.pipe';
 import { ModePanelComponent } from './components/player-stats/mode-panel/mode-panel.component';
 import { MapComponent } from './components/map/map.component';
 import { ShopComponent } from './components/shop/shop.component';
-import { BundleComponent } from './components/shop/bundle/bundle.component';
 import { ItemComponent } from './components/shop/item/item.component';
 import { ModalExpandirItemsComponent } from './components/modals/modal-expandir-items/modal-expandir-items.component';
 
@@ -42,7 +41,6 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     ModePanelComponent,
     MapComponent,
     ShopComponent,
-    BundleComponent,
     ItemComponent,
     ModalExpandirItemsComponent,
   ],

@@ -1,7 +1,4 @@
-<div class="item">
-    <div class="item-image">
-        <img src={{item.newDisplayAsset.materialInstances[0].images.Background}} alt={{item.items[0].name}}>
-    </div>
+<div class="item" [style.backgroundImage]="'url(' + image + ')'">
     <div class="item-info">
         <div class="title">{{item.items[0].name}}</div>
         <div class="price">
@@ -9,7 +6,7 @@
             {{item.finalPrice}}
         </div>
         <div class="btnVerItem">
-            <button mat-raised-button color="primary" (click)="expandirPacote(item.items)">Ver item</button>
+            <button mat-raised-button color="primary" (click)="expandirPacote(item.items)">{{btnText}}</button>
         </div>
     </div>
 </div>
