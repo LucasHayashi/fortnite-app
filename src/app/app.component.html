@@ -18,12 +18,27 @@
       </button>
       <span>Fortnite App</span>
       <span class="spacer"></span>
-      <button mat-icon-button class="favorite-icon">
-        <mat-icon>favorite</mat-icon>
+      <button mat-icon-button class="star-icon" (click)="openLink('github')" matTooltip="Star Fortnite App"
+        matTooltipPosition="below">
+        <mat-icon svgIcon="github"></mat-icon>
       </button>
-      <button mat-icon-button>
+      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Compartilhar" matTooltipPosition="below">
         <mat-icon>share</mat-icon>
       </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="shareOnSocialMedia('whatsapp')">
+          <mat-icon svgIcon="whatsapp"></mat-icon>
+          <span>WhatsApp</span>
+        </button>
+        <button mat-menu-item (click)="shareOnSocialMedia('linkedin')">
+          <mat-icon svgIcon="linkedin"></mat-icon>
+          <span>LinkedIn</span>
+        </button>
+        <button mat-menu-item (click)="shareOnSocialMedia('twitter')">
+          <mat-icon svgIcon="twitter"></mat-icon>
+          <span>Twitter</span>
+        </button>
+      </mat-menu>
     </mat-toolbar>
     <div class="container">
       <mat-card class="mat-card">

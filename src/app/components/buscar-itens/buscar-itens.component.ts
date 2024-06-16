@@ -32,7 +32,7 @@ export class BuscarItensComponent {
     }),
     map((response) => response.data ?? []),
     map((items) => this.listaDeItemsParaItem(items)),
-    tap((x) => console.log(x)),
+    // tap((x) => console.log(x)),
     catchError((error: HttpErrorResponse) => {
       if (error.status === 404) {
         this._snackBar.open("Nenhum item encontrado", "OK", {

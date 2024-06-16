@@ -21,7 +21,6 @@ export class ItemComponent implements OnInit {
   }
 
   setImage(): void {
-    console.log(this.item)
     this.image = this.item.newDisplayAsset?.materialInstances[0]?.images?.Background;
     if (!this.image) {
       this.image = this.item?.items[0].images.icon; // Fallback
