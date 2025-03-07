@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { News } from 'src/app/interfaces/news';
-import { NoticiasService } from '../noticias.service';
+import { INews } from 'src/app/interfaces/news';
+import { FortniteService } from 'src/app/services/fortnite.service';
 
 @Component({
   selector: 'app-noticias',
@@ -9,11 +9,11 @@ import { NoticiasService } from '../noticias.service';
   styleUrls: ['./noticias.component.scss'],
 })
 export class NoticiasComponent implements OnInit {
-  noticias$: Observable<News>;
+  noticias$: Observable<INews>;
 
-  constructor(private noticiasService: NoticiasService) {}
+  constructor(private _fortniteService: FortniteService) {}
 
   ngOnInit(): void {
-    this.noticias$ = this.noticiasService.getNews();
+    this.noticias$ = this._fortniteService.getNews();
   }
 }

@@ -5,9 +5,9 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
-import { MapService } from '../map.service';
+import { FortniteService } from 'src/app/services/fortnite.service';
 import { Observable } from 'rxjs';
-import {  Map } from 'src/app/interfaces/map';
+import { IMap } from 'src/app/interfaces/map';
 
 @Component({
   selector: 'app-map',
@@ -15,11 +15,11 @@ import {  Map } from 'src/app/interfaces/map';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  map$: Observable<Map>;
+  map$: Observable<IMap>;
 
-  constructor(private mapService: MapService) {}
+  constructor(private _fortniteService: FortniteService) {}
 
   ngOnInit(): void {
-    this.map$ = this.mapService.getMap();
+    this.map$ = this._fortniteService.getMap();
   }
 }

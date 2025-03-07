@@ -3,16 +3,27 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError, debounceTime, distinctUntilChanged, filter, finalize, map, of, repeat, switchMap, tap } from 'rxjs';
-import { Cosmetic } from 'src/app/interfaces/cosmetic';
+import {
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  finalize,
+  map,
+  of,
+  repeat,
+  switchMap,
+  tap,
+} from 'rxjs';
+import { ICosmetic } from 'src/app/interfaces/cosmetic';
 import { FortniteItem } from 'src/app/models/FortniteItem';
-import { BuscarItensService } from '../buscar-itens.service';
+import { FortniteService } from 'src/app/services/fortnite.service';
 import { ModalExpandirItemComponent } from '../modals/modal-expandir-item/modal-expandir-item.component';
 
 @Component({
   selector: 'app-buscar-itens',
   templateUrl: './buscar-itens.component.html',
-  styleUrls: ['./buscar-itens.component.scss']
+  styleUrls: ['./buscar-itens.component.scss'],
 })
 export class BuscarItensComponent {
   isLoading: boolean = false;
@@ -24,52 +35,53 @@ export class BuscarItensComponent {
     distinctUntilChanged(),
     switchMap((valorDigitado) => {
       this.isLoading = true;
-      return this._buscarItensService.getItens(valorDigitado).pipe(
+      return this._fortniteService.getItens(valorDigitado).pipe(
         finalize(() => {
           this.isLoading = false;
         })
-      )
+      );
     }),
     map((response) => response.data ?? []),
     map((items) => this.listaDeItemsParaItem(items)),
-    // tap((x) => console.log(x)),
     catchError((error: HttpErrorResponse) => {
       if (error.status === 404) {
-        this._snackBar.open("Nenhum item encontrado", "OK", {
+        this._snackBar.open('Nenhum item encontrado', 'OK', {
           duration: 1000,
-        })
+        });
         return of([]);
       } else {
         throw new Error(error.message);
       }
     }),
     repeat()
-  )
+  );
 
   limparItemBuscado() {
     this.nomeDoItem.reset('');
   }
 
-  listaDeItemsParaItem(items: Cosmetic[]): FortniteItem[] {
+  listaDeItemsParaItem(items: ICosmetic[]): FortniteItem[] {
     return items.map((item) => {
       return new FortniteItem(item);
-    })
+    });
   }
 
-  expandirItem(item: Cosmetic) {
+  expandirItem(item: ICosmetic) {
     this._dialog.open(ModalExpandirItemComponent, {
-      data: item
-    })
+      data: item,
+    });
   }
 
   getBackgroundRadial(cores: any): string {
     if (cores) {
-      return cores.map((cor, idx) => "#" + cor).join(', ');
+      return cores.map((cor, idx) => '#' + cor).join(', ');
     }
     return ['#1ed2eb', '#17b4dd', '#0f8ecd', '#065fb9', '#034fb1'].join(', ');
   }
 
-  constructor(private _buscarItensService: BuscarItensService, 
-              private _snackBar: MatSnackBar,
-              private _dialog: MatDialog) { }
+  constructor(
+    private _fortniteService: FortniteService,
+    private _snackBar: MatSnackBar,
+    private _dialog: MatDialog
+  ) {}
 }

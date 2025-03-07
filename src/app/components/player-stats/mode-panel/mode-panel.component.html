@@ -1,33 +1,34 @@
-<mat-expansion-panel class="mat-expansion-panel-geral" expanded="{{expanded}}">
-    <mat-expansion-panel-header>
-        <mat-panel-title class="mat-expansion-panel-geral-title">
-            {{playerMode}}
-        </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="items-container">
-        <div class="item">
-            <div class="title">Vitórias</div>
-            <div class="value">{{playerStats?.wins}}</div>
-        </div>
-        <div class="item">
-            <div class="title">WinRate</div>
-            <div class="value">{{playerStats?.winRate | percentFormat}}</div>
-        </div>
-        <div class="item">
-            <div class="title">Partidas</div>
-            <div class="value">{{playerStats?.matches}}</div>
-        </div>
-        <div class="item">
-            <div class="title">Vitórias</div>
-            <div class="value">{{playerStats?.wins}}</div>
-        </div>
-        <div class="item">
-            <div class="title">Minutos jogados</div>
-            <div class="value">{{playerStats?.minutesPlayed}}</div>
-        </div>
-        <div class="item">
-            <div class="title">Última atualização</div>
-            <div class="value">{{playerStats?.lastModified | date: 'dd/MM/yyyy hh:mm:ss a'}}</div>
-        </div>
+<mat-expansion-panel
+  class="mat-expansion-panel-geral"
+  expanded="{{ expanded }}"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title class="mat-expansion-panel-geral-title">
+      {{ playerMode }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="items-container">
+    <div class="item">
+      <div class="title">Vitórias</div>
+      <div class="value">{{ playerStats.placetop1 }}</div>
     </div>
+    <div class="item">
+      <div class="title">WinRate</div>
+      <div class="value">{{ playerStats.winrate | percentFormat }}</div>
+    </div>
+    <div class="item">
+      <div class="title">Partidas</div>
+      <div class="value">{{ playerStats.matchesplayed }}</div>
+    </div>
+    <div class="item">
+      <div class="title">Minutos Jogados</div>
+      <div class="value">{{ playerStats.minutesplayed }}</div>
+    </div>
+    <div class="item">
+      <div class="title">Última atualização</div>
+      <div class="value">
+        {{ playerStats.lastmodified | date : "dd/MM/yyyy hh:mm:ss a" }}
+      </div>
+    </div>
+  </div>
 </mat-expansion-panel>

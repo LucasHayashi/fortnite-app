@@ -1,6 +1,6 @@
-import { Cosmetic } from "./cosmetic";
+import { ICosmetic } from './cosmetic';
 
-export interface Cosmetics {
-    "status": number,
-    "data": Array<Cosmetic>
+export interface ICosmetics {
+  status: number;
+  data: Array<ICosmetic>;
 }

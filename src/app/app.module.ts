@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
+import {
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+  MatFormFieldDefaultOptions,
+} from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +24,10 @@ import { MapComponent } from './components/map/map.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ItemComponent } from './components/shop/item/item.component';
 import { ModalExpandirItemsComponent } from './components/modals/modal-expandir-items/modal-expandir-items.component';
+import { ModalExpandirMusicaComponent } from './components/modals/modal-expandir-musica/modal-expandir-musica.component';
+import { ModalExpandirCarroComponent } from './components/modals/modal-expandir-carro/modal-expandir-carro.component';
+import { ModalExpandirInstrumentoComponent } from './components/modals/modal-expandir-instrumento/modal-expandir-instrumento.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -43,6 +50,9 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     ShopComponent,
     ItemComponent,
     ModalExpandirItemsComponent,
+    ModalExpandirMusicaComponent,
+    ModalExpandirCarroComponent,
+    ModalExpandirInstrumentoComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,11 +61,15 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: formFieldDefaultOptions },
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: formFieldDefaultOptions,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

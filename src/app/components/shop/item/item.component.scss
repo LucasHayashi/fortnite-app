@@ -1,32 +1,43 @@
 .item {
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 300px;
-    display: flex;
-    align-items: flex-end;
-    background-size: cover;
-    background-position: center;
+  width: 300px;
+  height: 100%;
+  margin: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 8px;
+}
 
-    .item-info {
-        padding: 10px;
+.item-image {
+  width: 100%;
+  height: auto;
+}
 
-        .title,
-        .price {
-            font-size: 1.25rem;
-            font-weight: bold;
-            text-shadow: 0 0 3px #000;
-            text-transform: uppercase;
-            margin: 12px 0;
-        }
+.item mat-card-header,
+.item mat-card-content,
+.item mat-card-actions {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
-        .price {
-            display: flex;
-            align-items: center;
+.item .price {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
 
-            img {
-                height: 1.5rem;
-                margin-right: 5px;
-            }
-        }
-    }
+.item .price img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.item mat-card-actions {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.item mat-card-actions button {
+  width: 100%;
 }

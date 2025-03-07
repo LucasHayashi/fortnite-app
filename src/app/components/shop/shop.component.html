@@ -1,12 +1,69 @@
 <ng-container *ngIf="shop$ | async as shop; else loading">
-    <h1 class="main-text">{{ shop?.featured?.name }} - {{ shop?.date | date: 'dd/MM/yyyy HH:mm:ss' }}</h1>
-    <div class="shop-container">
-        <ng-container *ngFor="let itemLoja of shop?.featured?.entries">
-            <app-item [item]="itemLoja" class="item" />
-        </ng-container>
-    </div>
+  <h1 class="main-text">
+    Item Shop - Renova em:
+    {{ tempoRestante }}
+  </h1>
+
+  <mat-tab-group
+    animationDuration="0ms"
+    mat-stretch-tabs="true"
+    [color]="'accent'"
+  >
+    <!-- Iteração sobre as categorias principais -->
+    <mat-tab
+      *ngFor="let category of shop.categories"
+      [label]="category.name + ' (' + category.total_items + ')'"
+    >
+      <ng-template matTabContent>
+        <div class="shop-container">
+          <!-- Exibe os itens da categoria principal, se houver -->
+          <ng-container *ngIf="category.items && category.items.length > 0">
+            <ng-container *ngFor="let item of category.items">
+              <app-item [item]="item" class="item"></app-item>
+            </ng-container>
+          </ng-container>
+
+          <!-- Verifica se há subcategorias -->
+          <ng-container
+            *ngIf="category.sub_category && category.sub_category.length > 0"
+          >
+            <mat-accordion>
+              <mat-expansion-panel
+                *ngFor="let subCategory of category.sub_category"
+              >
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ subCategory.name }} ({{ subCategory.total_items }})
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <!-- Exibe os itens da subcategoria -->
+                <div class="shop-container">
+                  <ng-container
+                    *ngIf="subCategory.items && subCategory.items.length > 0"
+                  >
+                    <ng-container *ngFor="let item of subCategory.items">
+                      <app-item [item]="item" class="item"></app-item>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container
+                    *ngIf="!subCategory.items || subCategory.items.length === 0"
+                  >
+                    <p>Nenhum item disponível nesta subcategoria.</p>
+                  </ng-container>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </ng-container>
+        </div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
 </ng-container>
 
 <ng-template #loading>
-    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
 </ng-template>

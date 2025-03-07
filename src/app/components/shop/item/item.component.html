@@ -1,12 +1,19 @@
-<div class="item" [style.backgroundImage]="'url(' + image + ')'">
-    <div class="item-info">
-        <div class="title">{{item.items[0].name}}</div>
-        <div class="price">
-            <img src="/assets/vbuck/vbuck-xs.png" alt="VBuck">
-            {{item.finalPrice}}
-        </div>
-        <div class="btnVerItem">
-            <button mat-raised-button color="primary" (click)="expandirPacote(item.items)">{{btnText}}</button>
-        </div>
+<mat-card class="item" [ngStyle]="getBackgroundStyle(item.colors)">
+  <ng-container *ngIf="item.colors">
+    <img mat-card-image [src]="image" alt="Item Image" class="item-image" />
+  </ng-container>
+  <mat-card-header>
+    <mat-card-title>{{ itemTitle }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="price">
+      <img src="/assets/vbuck/vbuck-xs.png" alt="VBuck" />
+      {{ item.finalPrice }}
     </div>
-</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="expandir(item)">
+      {{ btnText }}
+    </button>
+  </mat-card-actions>
+</mat-card>
