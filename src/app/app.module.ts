@@ -27,7 +27,6 @@ import { ModalExpandirItemsComponent } from './components/modals/modal-expandir-
 import { ModalExpandirMusicaComponent } from './components/modals/modal-expandir-musica/modal-expandir-musica.component';
 import { ModalExpandirCarroComponent } from './components/modals/modal-expandir-carro/modal-expandir-carro.component';
 import { ModalExpandirInstrumentoComponent } from './components/modals/modal-expandir-instrumento/modal-expandir-instrumento.component';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -62,7 +61,6 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxSkeletonLoaderModule,
   ],
   providers: [
     {
