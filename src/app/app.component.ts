@@ -9,7 +9,7 @@ export type LinkType = 'linkedin' | 'whatsapp' | 'github' | 'twitter';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'fornite-app';
@@ -20,23 +20,26 @@ export class AppComponent {
     { link: 'noticias', title: 'Notícias', icon: 'newspaper' },
     { link: 'map', title: 'Mapa', icon: 'map' },
     { link: 'banners', title: 'Banners', icon: 'interests' },
-  ]
+  ];
 
   mode: MatDrawerMode;
   isMobile: boolean = false;
   projectUrl: string = window.location.origin;
 
-
-  constructor(private breakpointObserver: BreakpointObserver, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    iconRegistry: MatIconRegistry,
+    sanitizer: DomSanitizer
+  ) {
     const icons = [
       { name: 'github', url: './assets/svg/icons8-github.svg' },
       { name: 'whatsapp', url: './assets/svg/icons8-whatsapp.svg' },
-      { name: 'linkedin', url: '../assets/svg/icons8-linkedin.svg' },
-      { name: 'instagram', url: '../assets/svg/icons8-instagram.svg' },
-      { name: 'twitter', url: '../assets/svg/icons8-twitter.svg' }
+      { name: 'linkedin', url: './assets/svg/icons8-linkedin.svg' },
+      { name: 'instagram', url: './assets/svg/icons8-instagram.svg' },
+      { name: 'twitter', url: './assets/svg/icons8-twitter.svg' },
     ];
 
-    icons.forEach(icon => {
+    icons.forEach((icon) => {
       iconRegistry.addSvgIcon(
         icon.name,
         sanitizer.bypassSecurityTrustResourceUrl(icon.url)
@@ -45,7 +48,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.breakpointObserver.observe(Breakpoints.Handset).subscribe(result => {
+    this.breakpointObserver.observe(Breakpoints.Handset).subscribe((result) => {
       if (result.matches) {
         // Dispositivo móvel
         this.mode = 'over';
@@ -64,8 +67,8 @@ export class AppComponent {
       whatsapp: `https://api.whatsapp.com/send?text=${uriProject}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${uriProject}`,
       twitter: `https://twitter.com/intent/tweet?url=${uriProject}`,
-      github: 'https://github.com/LucasHayashi/fortnite-app'
-    }
+      github: 'https://github.com/LucasHayashi/fortnite-app',
+    };
     window.open(links[type]);
   }
 

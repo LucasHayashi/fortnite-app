@@ -1,43 +1,107 @@
-## Sobre
-Este é um projeto em Angular com o uso da biblioteca Angular Material UI, e tem como objetivo disponibilizar informações do jogo Fortnite. A ferramenta conta com as seguintes funcionalidades:
+# Fortnite App
 
-- Busca de informações gerais de um jogador de Fortnite
-- Busca de itens do jogo utilizando a técnica Type Ahead
-- Listagem de notícias do jogo nos modos Battle Royale e Save The World
-- Listagem de ícones de banners do jogo
+## 📌 Sobre
 
-## Instalação
-Para instalar o projeto, é necessário clonar o repositório e instalar as dependências através do npm. Para isso, execute os seguintes comandos no terminal:
+Este projeto é desenvolvido em **Angular** com **Angular Material UI** e tem como objetivo fornecer informações detalhadas sobre o jogo **Fortnite**.
 
-```
-git clone https://github.com/LucasHayashi/fortnite-app.git
-cd fortnite-app
-npm install
-```
+### 🔹 Funcionalidades principais:
 
-## Executando a aplicação
-Para executar a aplicação, basta executar o seguinte comando no terminal:
+✅ **Listagem dos itens da loja atual** do Fortnite  
+✅ Consulta de **estatísticas de jogadores**  
+✅ Busca de **itens do jogo** com **Type Ahead**  
+✅ Exibição das **últimas notícias** do Fortnite (**Battle Royale** e **Save The World**)  
+✅ Listagem de **ícones de banners** disponíveis no jogo
 
-```
+---
+
+## 🛠️ Instalação
+
+Siga os passos abaixo para instalar e configurar o projeto localmente:
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/LucasHayashi/fortnite-app.git
+   cd fortnite-app
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   ```
+
+---
+
+## 🚀 Executando a Aplicação
+
+Para iniciar a aplicação, utilize o seguinte comando:
+
+```sh
 npm start
 ```
-A aplicação estará disponível no endereço http://localhost:4200/.
 
-## Funcionalidades
-### Busca de informações de jogadores
-Para buscar as informações de um jogador de Fortnite, basta digitar o nome do jogador no campo de busca e pressionar a tecla Enter ou clicar no botão de busca. As informações serão exibidas na tela, incluindo o nome do jogador, a plataforma em que joga, o número de vitórias, o número de partidas jogadas e o tempo total jogado.
+Após a inicialização, a aplicação estará disponível em:  
+🔗 **http://localhost:4200/**
 
-### Busca de itens do jogo
-Para buscar itens do jogo, digite o nome do item no campo de busca e aguarde a lista de sugestões aparecer. Selecione o item desejado na lista e clique no item para exibir mais informações.
+---
 
-### Listagem de notícias
-A aplicação exibe as notícias mais recentes do jogo nos modos Battle Royale e Save The World. As notícias são atualizadas automaticamente conforme são publicadas no site oficial do jogo.
+## 🎮 Funcionalidades
 
-### Listagem de ícones de banners
-A aplicação exibe uma lista com todos os ícones de banners disponíveis no jogo. Para visualizar um ícone, basta clicar sobre ele.
+### 🛍️ Listagem da Loja Atual
 
-### API Utilizada
-A API utilizada neste projeto foi a https://fortnite-api.com/. Ela oferece diversas informações sobre o jogo, incluindo dados dos jogadores, itens, notícias, entre outros.
+- Exibe **todos os itens disponíveis atualmente na loja do Fortnite**.
+- As informações são atualizadas automaticamente.
 
-## Contribuição
-Se você quiser contribuir com este projeto, fique à vontade para fazer um fork do repositório e enviar um pull request com suas alterações. Será um prazer receber contribuições para tornar este projeto ainda melhor!
+### 🔎 Busca de Estatísticas de Jogadores
+
+- Insira o nome do jogador no campo de busca.
+- Pressione **Enter** ou clique no botão de pesquisa.
+- Serão exibidas informações como **nome, plataforma, número de vitórias, partidas jogadas e tempo total de jogo**.
+
+### 🎒 Busca de Itens do Jogo
+
+- Digite o nome do item no campo de pesquisa.
+- O sistema exibirá sugestões automáticas (**Type Ahead**).
+- Selecione o item desejado para visualizar mais detalhes.
+
+### 📰 Listagem de Notícias
+
+- Exibição das **notícias mais recentes** do Fortnite, abrangendo os modos **Battle Royale** e **Save The World**.
+- As notícias são atualizadas automaticamente conforme são publicadas no site oficial.
+
+### 🚩 Listagem de Ícones de Banners
+
+- Exibição de todos os **ícones de banners disponíveis** no jogo.
+- Clique em um ícone para vê-lo em detalhes.
+
+---
+
+## 🔗 Backend e APIs Utilizadas
+
+Este projeto utiliza um **backend próprio**, responsável por **integrar e tratar os dados** das seguintes APIs:
+
+- [Fortnite API](https://fortnite-api.com/)
+- [Fortnite API IO](https://fortniteapi.io/)
+
+O backend garante a padronização das informações e otimiza a performance da aplicação.
+
+---
+
+## 🤝 Contribuição
+
+Quer contribuir com este projeto? Siga estes passos:
+
+1. Faça um **fork** do repositório.
+2. Crie uma **branch** para sua melhoria:
+   ```sh
+   git checkout -b minha-melhoria
+   ```
+3. Faça as alterações necessárias e **commite**:
+   ```sh
+   git commit -m "Descrição das alterações"
+   ```
+4. Envie para o repositório remoto:
+   ```sh
+   git push origin minha-melhoria
+   ```
+5. Abra um **Pull Request** para revisão.
+
+Todas as contribuições são bem-vindas! 🚀
