@@ -27,7 +27,7 @@
     <div class="item">
       <div class="title">Última atualização</div>
       <div class="value">
-        {{ playerStats.lastmodified | date : "dd/MM/yyyy hh:mm:ss a" }}
+        {{ playerStats.lastmodified * 1000 | date : "dd/MM/yyyy hh:mm:ss a" }}
       </div>
     </div>
   </div>

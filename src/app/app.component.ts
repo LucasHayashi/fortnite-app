@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
+import { LoadingService } from './services/loading.service';
 
 export type LinkType = 'linkedin' | 'whatsapp' | 'github' | 'twitter';
 
@@ -25,11 +26,13 @@ export class AppComponent {
   mode: MatDrawerMode;
   isMobile: boolean = false;
   projectUrl: string = window.location.origin;
+  isLoading$ = this.loadingService.loading$;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer
+    sanitizer: DomSanitizer,
+    public loadingService: LoadingService
   ) {
     const icons = [
       { name: 'github', url: './assets/svg/icons8-github.svg' },

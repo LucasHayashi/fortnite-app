@@ -1,17 +1,21 @@
 <div class="banners-container">
-    <mat-progress-spinner mode="indeterminate" color="accent" *ngIf="isLoading"></mat-progress-spinner>
-    <div class="banner" *ngFor="let banner of currentBannerList">
-        <div class="image" (click)="expandirIcone(banner)">
-            <img mat-card-image src="{{banner.images.smallIcon}}" alt="{{banner.name}}">
-        </div>
+  <div class="banner" *ngFor="let banner of currentBannerList">
+    <div class="image" (click)="expandirIcone(banner)">
+      <img
+        mat-card-image
+        src="{{ banner.images.smallIcon }}"
+        alt="{{ banner.name }}"
+      />
     </div>
+  </div>
 </div>
-<mat-paginator 
-    [length]="banners.length"
-    (page)="handlePageEvent($event)"
-    [pageSize]="pageSize" 
-    [pageSizeOptions]="pageSizeOptions"
-    [pageIndex]="pageIndex"
-    [showFirstLastButtons]="showFirstLastButtons"
-    aria-label="Selecione a página">
+<mat-paginator
+  [length]="banners.length"
+  (page)="handlePageEvent($event)"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  [pageIndex]="pageIndex"
+  [showFirstLastButtons]="showFirstLastButtons"
+  aria-label="Selecione a página"
+>
 </mat-paginator>

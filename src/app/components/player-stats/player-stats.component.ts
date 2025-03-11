@@ -19,7 +19,6 @@ export class PlayerStatsComponent {
     platform: new FormControl<TPlatform>('epic'),
   });
 
-  isLoading = false;
   searchPlayer$: Observable<ISearchPlayer>;
   playerStats$: Observable<IPlayerStats>;
 
@@ -43,17 +42,12 @@ export class PlayerStatsComponent {
           this.playerStats$ = this._fortniteService
             .getPlayerStats(res.account_id)
             .pipe(
-              tap(() => (this.isLoading = true)),
-              delay(500),
               catchError((error: HttpErrorResponse) => {
                 let errorMessage = error.message;
                 this._snackBar.open(errorMessage, 'OK', {
                   duration: 3000,
                 });
                 throw new Error(error.message);
-              }),
-              finalize(() => {
-                this.isLoading = false;
               })
             );
         }

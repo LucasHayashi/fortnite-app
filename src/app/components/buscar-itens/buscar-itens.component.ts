@@ -26,7 +26,6 @@ import { ModalExpandirItemComponent } from '../modals/modal-expandir-item/modal-
   styleUrls: ['./buscar-itens.component.scss'],
 })
 export class BuscarItensComponent {
-  isLoading: boolean = false;
   PAUSA = 500;
   nomeDoItem: FormControl = new FormControl('');
   listaDeItens$ = this.nomeDoItem.valueChanges.pipe(
@@ -34,12 +33,7 @@ export class BuscarItensComponent {
     filter((valorDigitado) => valorDigitado.length >= 3),
     distinctUntilChanged(),
     switchMap((valorDigitado) => {
-      this.isLoading = true;
-      return this._fortniteService.getItens(valorDigitado).pipe(
-        finalize(() => {
-          this.isLoading = false;
-        })
-      );
+      return this._fortniteService.getItens(valorDigitado);
     }),
     map((response) => response.data ?? []),
     map((items) => this.listaDeItemsParaItem(items)),

@@ -30,12 +30,7 @@
   </div>
   <button mat-raised-button color="accent" type="submit">Buscar</button>
 </form>
-<mat-progress-spinner
-  mode="indeterminate"
-  color="accent"
-  *ngIf="isLoading"
-  class="mat-progress-spinner"
-></mat-progress-spinner>
+
 <ng-container *ngIf="playerStats$ | async as playerStats">
   <mat-card>
     <mat-card-content>

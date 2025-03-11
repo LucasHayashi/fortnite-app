@@ -1,9 +1,18 @@
-<mat-drawer-container class="drawer-container" autosize [hasBackdrop]="isMobile">
+<mat-drawer-container
+  class="drawer-container"
+  autosize
+  [hasBackdrop]="isMobile"
+>
   <mat-drawer #drawer class="sidenav" [mode]="mode" opened>
     <mat-nav-list>
       <ng-container *ngFor="let navItem of navItems">
-        <a mat-list-item matListItemTitle routerLink="{{navItem.link}}" routerLinkActive="active-link"
-          [routerLinkActiveOptions]="{exact: true}">{{ navItem.title }}
+        <a
+          mat-list-item
+          matListItemTitle
+          routerLink="{{ navItem.link }}"
+          routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ navItem.title }}
           <button mat-icon-button matListItemMeta>
             <mat-icon>{{ navItem.icon }}</mat-icon>
           </button>
@@ -18,11 +27,21 @@
       </button>
       <span>Fortnite App</span>
       <span class="spacer"></span>
-      <button mat-icon-button class="star-icon" (click)="openLink('github')" matTooltip="Star Fortnite App"
-        matTooltipPosition="below">
+      <button
+        mat-icon-button
+        class="star-icon"
+        (click)="openLink('github')"
+        matTooltip="Star Fortnite App"
+        matTooltipPosition="below"
+      >
         <mat-icon svgIcon="github"></mat-icon>
       </button>
-      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Compartilhar" matTooltipPosition="below">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        matTooltip="Compartilhar"
+        matTooltipPosition="below"
+      >
         <mat-icon>share</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -46,6 +65,13 @@
           <router-outlet></router-outlet>
         </mat-card-content>
       </mat-card>
+      <ng-container *ngIf="isLoading$ | async">
+        <div class="overlay"></div>
+        <mat-progress-spinner
+          [mode]="'indeterminate'"
+          color="accent"
+        ></mat-progress-spinner>
+      </ng-container>
     </div>
   </mat-drawer-content>
 </mat-drawer-container>

@@ -11,7 +11,6 @@ import { FortniteService } from 'src/app/services/fortnite.service';
   styleUrls: ['./banners.component.scss'],
 })
 export class BannersComponent {
-  isLoading = false;
   banners: Array<IBanners> = [];
   currentBannerList: Array<IBanners>;
   showFirstLastButtons: boolean = true;
@@ -26,11 +25,9 @@ export class BannersComponent {
   ) {}
 
   ngOnInit(): void {
-    this.isLoading = true;
     this._fortniteService.getBanners().subscribe((data) => {
       this.banners = data;
       this.currentBannerList = this.banners.slice(0, 30);
-      this.isLoading = false;
     });
 
     this.dialog.afterOpened.subscribe((data) => {

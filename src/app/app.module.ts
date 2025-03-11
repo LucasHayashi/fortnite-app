@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { NoticiasComponent } from './components/noticias/noticias.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NoticiaComponent } from './components/noticias/noticia/noticia.component';
 import { ModalExpandirImagemComponent } from './components/modals/modal-expandir-imagem/modal-expandir-imagem.component';
 import { ModalExpandirIconeComponent } from './components/modals/modal-expandir-icone/modal-expandir-icone.component';
@@ -27,6 +27,7 @@ import { ModalExpandirItemsComponent } from './components/modals/modal-expandir-
 import { ModalExpandirMusicaComponent } from './components/modals/modal-expandir-musica/modal-expandir-musica.component';
 import { ModalExpandirCarroComponent } from './components/modals/modal-expandir-carro/modal-expandir-carro.component';
 import { ModalExpandirInstrumentoComponent } from './components/modals/modal-expandir-instrumento/modal-expandir-instrumento.component';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -66,6 +67,11 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: formFieldDefaultOptions,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],
