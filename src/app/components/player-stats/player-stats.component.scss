@@ -1,42 +1,27 @@
-.form-field {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
+.player-stats {
+  margin-top: 20px;
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  div {
+    font-size: 1.25rem;
+  }
 }
 
-.buscar-jogador-form-field {
-    width: 500px;
-    margin: 0 auto;
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.visao-geral{
-    margin: 20px 0;
-    .info {
-        margin: 10px 0;
-    }
-}
-
-.mat-list-item {
-    max-width: 100%;
-}
-
-.mat-progress-spinner, .mat-accordion {
-    margin: 30px 0;
-}
-
-.player {
-    margin-top: 10px;
-    .name {
-        font-size: 1.5rem;
-    }
-
-    .nivel {
-        font-size: 1.25rem;
-    }
+mat-form-field {
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
-    .buscar-jogador-form-field {
-        width: 100%;
-    }
+  mat-form-field {
+    width: 100%;
+  }
 }

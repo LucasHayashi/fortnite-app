@@ -19,6 +19,7 @@ import { ICosmetic } from 'src/app/interfaces/cosmetic';
 import { FortniteItem } from 'src/app/models/FortniteItem';
 import { FortniteService } from 'src/app/services/fortnite.service';
 import { ModalExpandirItemComponent } from '../modals/modal-expandir-item/modal-expandir-item.component';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-buscar-itens',
@@ -38,10 +39,8 @@ export class BuscarItensComponent {
     map((response) => response.data ?? []),
     map((items) => this.listaDeItemsParaItem(items)),
     catchError((error: HttpErrorResponse) => {
-      if (error.status === 404) {
-        this._snackBar.open('Nenhum item encontrado', 'OK', {
-          duration: 1000,
-        });
+      if (error.status === 404 || error.status === 500) {
+        this._snackbarService.openSnackBar('Nenhum item encontrado');
         return of([]);
       } else {
         throw new Error(error.message);
@@ -75,7 +74,7 @@ export class BuscarItensComponent {
 
   constructor(
     private _fortniteService: FortniteService,
-    private _snackBar: MatSnackBar,
+    private _snackbarService: SnackbarService,
     private _dialog: MatDialog
   ) {}
 }

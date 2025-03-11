@@ -1,49 +1,63 @@
-<form [formGroup]="playerForm" (ngSubmit)="onSubmit()" class="formulario">
-  <div class="form-field">
-    <mat-form-field class="no-padding buscar-jogador-form-field">
-      <mat-label>Nome do jogador</mat-label>
-      <input
-        matInput
-        type="text"
-        formControlName="name"
-        (keydown.enter)="onSubmit()"
-        required
-      />
-      <mat-hint>Digite o nome de um jogador</mat-hint>
-      <mat-error *ngIf="playerForm.get('name')?.hasError('required')">
-        O nome é <strong>obrigatório</strong>
-      </mat-error>
-      <mat-error *ngIf="playerForm.get('name')?.hasError('minlength')">
-        O nome do jogador deve possuir <strong>3 ou mais caractéres</strong>
-      </mat-error>
-    </mat-form-field>
-  </div>
-  <div class="form-field">
-    <mat-radio-group
-      aria-label="Selecione a plataforma"
-      formControlName="platform"
-    >
-      <mat-radio-button value="epic">EPIC</mat-radio-button>
-      <mat-radio-button value="psn">PSN</mat-radio-button>
-      <mat-radio-button value="xlb">Xbox</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <button mat-raised-button color="accent" type="submit">Buscar</button>
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit($event)">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome do jogador</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          (keydown.enter)="onSubmit($event)"
+          required
+          #nameInput
+        />
+        <button
+          *ngIf="nameInput.value"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="limparJogadorBuscado()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        <mat-hint>Digite o nome de um jogador</mat-hint>
+        <mat-error *ngIf="playerForm.get('name')?.hasError('required')">
+          O nome é <strong>obrigatório</strong>
+        </mat-error>
+        <mat-error *ngIf="playerForm.get('name')?.hasError('minlength')">
+          O nome do jogador deve possuir <strong>3 ou mais caracteres</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-radio-group
+        formControlName="platform"
+        aria-label="Selecione a plataforma"
+      >
+        <mat-radio-button value="epic">EPIC</mat-radio-button>
+        <mat-radio-button value="psn">PSN</mat-radio-button>
+        <mat-radio-button value="xlb">Xbox</mat-radio-button>
+      </mat-radio-group>
+
+      <div class="button-container">
+        <button mat-raised-button color="accent" type="submit">Buscar</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </form>
 
 <ng-container *ngIf="playerStats$ | async as playerStats">
-  <mat-card>
+  <mat-card class="player-stats">
     <mat-card-content>
-      <h1 class="name">{{ playerStats.name }}</h1>
-      <div class="nivel">Nível {{ playerStats.account.level }}</div>
+      <h1>{{ playerStats.name }}</h1>
+      <div>Nível {{ playerStats.account.level }}</div>
       <mat-progress-bar
         mode="determinate"
-        [color]="'accent'"
-        value="{{ playerStats.account.progress_pct }}"
+        color="accent"
+        [value]="playerStats.account.progress_pct"
       ></mat-progress-bar>
     </mat-card-content>
   </mat-card>
-  <mat-accordion class="mat-accordion">
+
+  <mat-accordion>
     <app-mode-panel
       [playerStats]="playerStats.global_stats.solo"
       playerMode="Solo"

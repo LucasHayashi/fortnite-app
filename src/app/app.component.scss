@@ -1,60 +1,62 @@
-html,
-body {
-  height: 100%;
-}
-
 .drawer-container {
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-
-  .spacer {
-    flex: 1 1 auto;
-  }
-
-  .sidenav {
-    padding: 20px;
-
-    .active-link {
-      color: #69f0ae;
-    }
-  }
-
-  .container {
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 87%;
-    margin: 1rem;
-
-    .mat-card {
-      max-width: 100%;
-      box-sizing: border-box;
-      /* inclui padding no tamanho total do elemento */
-      flex: 1;
-
-      .mat-card-content {
-        max-width: 100%;
-        height: 100%;
-        overflow-y: auto;
-      }
-    }
-  }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-mat-progress-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
+.sidenav {
+  width: 240px;
+}
+
+.mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content-container {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.card-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-card {
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .overlay {
+  position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
-  position: absolute;
-  z-index: 2;
-  backdrop-filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }

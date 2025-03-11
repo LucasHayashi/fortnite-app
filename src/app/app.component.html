@@ -12,7 +12,8 @@
           routerLink="{{ navItem.link }}"
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
-          >{{ navItem.title }}
+        >
+          {{ navItem.title }}
           <button mat-icon-button matListItemMeta>
             <mat-icon>{{ navItem.icon }}</mat-icon>
           </button>
@@ -20,6 +21,7 @@
       </ng-container>
     </mat-nav-list>
   </mat-drawer>
+
   <mat-drawer-content>
     <mat-toolbar>
       <button (click)="drawer.toggle()" mat-icon-button>
@@ -59,19 +61,24 @@
         </button>
       </mat-menu>
     </mat-toolbar>
-    <div class="container">
-      <mat-card class="mat-card">
-        <mat-card-content class="mat-card-content">
-          <router-outlet></router-outlet>
-        </mat-card-content>
-      </mat-card>
-      <ng-container *ngIf="isLoading$ | async">
-        <div class="overlay"></div>
-        <mat-progress-spinner
-          [mode]="'indeterminate'"
-          color="accent"
-        ></mat-progress-spinner>
-      </ng-container>
+
+    <div class="content-container">
+      <div class="card-container">
+        <mat-card class="main-card">
+          <mat-card-content>
+            <router-outlet></router-outlet>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
+
+    <ng-container *ngIf="isLoading$ | async">
+      <div class="overlay"></div>
+      <mat-progress-spinner
+        class="spinner"
+        [mode]="'indeterminate'"
+        color="accent"
+      ></mat-progress-spinner>
+    </ng-container>
   </mat-drawer-content>
 </mat-drawer-container>

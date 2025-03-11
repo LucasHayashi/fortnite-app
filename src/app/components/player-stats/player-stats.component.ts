@@ -1,11 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable, tap, map, finalize, catchError, delay } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { IPlayerStats } from 'src/app/interfaces/player-stats';
 import { ISearchPlayer } from 'src/app/interfaces/search-player';
 import { FortniteService } from 'src/app/services/fortnite.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { TPlatform } from 'src/app/types/platform';
 
 @Component({
@@ -21,18 +21,16 @@ export class PlayerStatsComponent {
 
   searchPlayer$: Observable<ISearchPlayer>;
   playerStats$: Observable<IPlayerStats>;
-
-  limparNomeBuscado(event) {
-    event.preventDefault();
-    this.playerForm.get('name')?.reset('');
-  }
+  @ViewChild('nameInput') nameInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private _fortniteService: FortniteService,
-    private _snackBar: MatSnackBar
+    private _snackBarService: SnackbarService
   ) {}
 
-  onSubmit() {
+  onSubmit(event: Event) {
+    event.preventDefault();
+
     if (this.playerForm.valid) {
       let name = this.playerForm.value.name;
       let platform = this.playerForm.value.platform;
@@ -42,20 +40,39 @@ export class PlayerStatsComponent {
           this.playerStats$ = this._fortniteService
             .getPlayerStats(res.account_id)
             .pipe(
+              tap((response) => {
+                if (
+                  response &&
+                  typeof response === 'object' &&
+                  'result' in response &&
+                  response.result === false
+                ) {
+                  this._snackBarService.openSnackBar(
+                    'A conta deste jogador é privada'
+                  );
+                  this.nameInput.nativeElement.focus();
+                  this.playerStats$ = of(null);
+                }
+              }),
               catchError((error: HttpErrorResponse) => {
                 let errorMessage = error.message;
-                this._snackBar.open(errorMessage, 'OK', {
-                  duration: 3000,
-                });
+                this._snackBarService.openSnackBar(errorMessage);
                 throw new Error(error.message);
               })
             );
+        } else {
+          this._snackBarService.openSnackBar('Nenhum jogador encontrado!');
+          this.nameInput.nativeElement.focus();
         }
       });
     } else {
-      this._snackBar.open('Corrija os dados do formulário!', 'OK', {
-        duration: 1000,
-      });
+      this._snackBarService.openSnackBar(
+        'Preencha todas informações do formulário'
+      );
     }
+  }
+
+  limparJogadorBuscado() {
+    this.playerForm.get('name').reset('');
   }
 }
