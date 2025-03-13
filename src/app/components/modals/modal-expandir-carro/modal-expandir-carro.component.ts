@@ -8,7 +8,7 @@ import { ICarsEntity } from 'src/app/interfaces/shop';
   styleUrls: ['./modal-expandir-carro.component.scss'],
 })
 export class ModalExpandirCarroComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ICarsEntity) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ICarsEntity[]) {}
 
   getBackgroundRadial(): string {
     return ['#1ed2eb', '#17b4dd', '#0f8ecd', '#065fb9', '#034fb1'].join(', ');

@@ -19,6 +19,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -42,7 +43,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatProgressBarModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRippleModule,
   ],
   exports: [
     MatButtonModule,
@@ -63,7 +65,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatProgressBarModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatMenuModule
-  ]
+    MatMenuModule,
+    MatRippleModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

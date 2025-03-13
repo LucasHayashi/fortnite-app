@@ -1,49 +1,53 @@
-<div mat-dialog-content class="modal-musica">
-  <mat-card class="item-card">
-    <mat-card-header>
-      <mat-card-title>{{ data.title }}</mat-card-title>
-      <mat-card-subtitle>
-        {{ data.artist }} ({{ data.releaseYear }})
-      </mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div
-        class="item-image"
-        [ngStyle]="{ '--gradiente-colors': getBackgroundRadial() }"
-      >
-        <img
-          src="{{ data.albumArt }}"
-          alt="Capa do álbum de {{ data.title }}"
-        />
-      </div>
-      <div class="item-details">
-        <p><strong>BPM:</strong> {{ data.bpm }}</p>
-        <p><strong>Duração:</strong> {{ data.duration }} segundos</p>
-        <p>
-          <strong>Adicionado em:</strong>
-          {{ data.added | date : "dd/MM/yyyy" }}
-        </p>
-      </div>
-      <div class="difficulty">
-        <h4>Dificuldade</h4>
-        <ul>
-          <li><strong>Vocais:</strong> {{ data.difficulty.vocals }}/5</li>
-          <li><strong>Guitarra:</strong> {{ data.difficulty.guitar }}/5</li>
-          <li><strong>Baixo:</strong> {{ data.difficulty.bass }}/5</li>
-          <li>
-            <strong>Baixo (Plástico):</strong>
-            {{ data.difficulty.plasticBass }}/5
-          </li>
-          <li><strong>Bateria:</strong> {{ data.difficulty.drums }}/5</li>
-          <li>
-            <strong>Bateria (Plástico):</strong>
-            {{ data.difficulty.plasticDrums }}/5
-          </li>
-        </ul>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<div mat-dialog-content class="modal-items">
+  <ng-container *ngFor="let item of data">
+    <div mat-dialog-content class="modal-musica">
+      <mat-card class="item-card">
+        <mat-card-header>
+          <mat-card-title>{{ item.title }}</mat-card-title>
+          <mat-card-subtitle>
+            {{ item.artist }} ({{ item.releaseYear }})
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div
+            class="item-image"
+            [ngStyle]="{ '--gradiente-colors': getBackgroundRadial() }"
+          >
+            <img
+              src="{{ item.albumArt }}"
+              alt="Capa do álbum de {{ item.title }}"
+            />
+          </div>
+          <div class="item-details">
+            <p><strong>BPM:</strong> {{ item.bpm }}</p>
+            <p><strong>Duração:</strong> {{ item.duration }} segundos</p>
+            <p>
+              <strong>Adicionado em:</strong>
+              {{ item.added | date : "dd/MM/yyyy" }}
+            </p>
+          </div>
+          <div class="difficulty">
+            <h4>Dificuldade</h4>
+            <ul>
+              <li><strong>Vocais:</strong> {{ item.difficulty.vocals }}/5</li>
+              <li><strong>Guitarra:</strong> {{ item.difficulty.guitar }}/5</li>
+              <li><strong>Baixo:</strong> {{ item.difficulty.bass }}/5</li>
+              <li>
+                <strong>Baixo (Plástico):</strong>
+                {{ item.difficulty.plasticBass }}/5
+              </li>
+              <li><strong>Bateria:</strong> {{ item.difficulty.drums }}/5</li>
+              <li>
+                <strong>Bateria (Plástico):</strong>
+                {{ item.difficulty.plasticDrums }}/5
+              </li>
+            </ul>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Fechar</button>
+    </mat-dialog-actions>
+  </ng-container>
 </div>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Fechar</button>
-</mat-dialog-actions>

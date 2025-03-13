@@ -1,19 +1,22 @@
-<mat-card class="item" [ngStyle]="getBackgroundStyle(item.colors)">
+<div
+  class="item-card"
+  [ngStyle]="getBackgroundStyle(item.colors)"
+  matRipple
+  (click)="expandir(item)"
+>
   <ng-container *ngIf="item.colors">
-    <img mat-card-image [src]="image" alt="Item Image" class="item-image" />
+    <img [src]="image" alt="Item Image" class="item-image" />
   </ng-container>
-  <mat-card-header>
-    <mat-card-title>{{ itemTitle }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
+  <div class="item-header">
+    <h3 class="item-title">{{ itemTitle }}</h3>
+  </div>
+  <div class="item-content">
     <div class="price">
       <img src="./assets/vbuck/vbuck-xs.png" alt="VBuck" />
       {{ item.finalPrice }}
+      <span *ngIf="item.finalPrice < item.regularPrice" class="regular-price">
+        {{ item.regularPrice }}
+      </span>
     </div>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="expandir(item)">
-      {{ btnText }}
-    </button>
-  </mat-card-actions>
-</mat-card>
+  </div>
+</div>

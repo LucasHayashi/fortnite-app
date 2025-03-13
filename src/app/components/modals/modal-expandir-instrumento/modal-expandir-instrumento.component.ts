@@ -8,7 +8,7 @@ import { IInstrumentsEntity } from 'src/app/interfaces/shop';
   styleUrls: ['./modal-expandir-instrumento.component.scss'],
 })
 export class ModalExpandirInstrumentoComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IInstrumentsEntity) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: IInstrumentsEntity[]) {}
 
   getBackgroundRadial(): string {
     return ['#1ed2eb', '#17b4dd', '#0f8ecd', '#065fb9', '#034fb1'].join(', ');
