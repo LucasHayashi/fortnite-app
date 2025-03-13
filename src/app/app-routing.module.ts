@@ -11,37 +11,32 @@ const routes: Routes = [
   {
     path: '',
     component: ShopComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
-    path: 'player-stats',
+    path: 'buscar-jogador',
     component: PlayerStatsComponent,
-    pathMatch: 'full'
   },
   {
     path: 'buscar-itens',
     component: BuscarItensComponent,
-    pathMatch: 'full'
   },
   {
     path: 'noticias',
     component: NoticiasComponent,
-    pathMatch: "full"
   },
   {
-    path: 'map',
+    path: 'mapa',
     component: MapComponent,
-    pathMatch: "full"
   },
   {
     path: 'banners',
     component: BannersComponent,
-    pathMatch: "full"
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

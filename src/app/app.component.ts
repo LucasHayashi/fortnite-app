@@ -15,11 +15,11 @@ export type LinkType = 'linkedin' | 'whatsapp' | 'github' | 'twitter';
 export class AppComponent {
   title = 'fornite-app';
   navItems = [
-    { link: '', title: 'Shopping', icon: 'storefront' },
-    { link: 'player-stats', title: 'Buscar Jogador', icon: 'sports_esports' },
+    { link: '', title: 'Loja de Itens', icon: 'storefront' },
+    { link: 'buscar-jogador', title: 'Buscar Jogador', icon: 'sports_esports' },
     { link: 'buscar-itens', title: 'Buscar Itens', icon: 'search' },
     { link: 'noticias', title: 'Notícias', icon: 'newspaper' },
-    { link: 'map', title: 'Mapa', icon: 'map' },
+    { link: 'mapa', title: 'Mapa', icon: 'map' },
     { link: 'banners', title: 'Banners', icon: 'interests' },
   ];
 
@@ -77,5 +77,11 @@ export class AppComponent {
 
   shareOnSocialMedia(type: LinkType): void {
     this.openLink(type);
+  }
+
+  onNavItemClick(drawer: any) {
+    if (this.isMobile) {
+      drawer.close();
+    }
   }
 }

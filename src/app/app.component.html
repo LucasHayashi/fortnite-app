@@ -3,15 +3,16 @@
   autosize
   [hasBackdrop]="isMobile"
 >
-  <mat-drawer #drawer class="sidenav" [mode]="mode" opened>
-    <mat-nav-list>
+  <mat-drawer #drawer class="sidenav" [mode]="mode" [opened]="!isMobile">
+    <mat-nav-list *ngIf="drawer.opened">
       <ng-container *ngFor="let navItem of navItems">
         <a
           mat-list-item
           matListItemTitle
-          routerLink="{{ navItem.link }}"
+          [routerLink]="navItem.link"
           routerLinkActive="active-link"
           [routerLinkActiveOptions]="{ exact: true }"
+          (click)="onNavItemClick(drawer)"
         >
           {{ navItem.title }}
           <button mat-icon-button matListItemMeta>
