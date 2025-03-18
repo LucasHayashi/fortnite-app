@@ -4,13 +4,12 @@
   matRipple
   (click)="expandir(item)"
 >
-  <ng-container *ngIf="item.colors">
+  <div class="image-container">
     <img [src]="image" alt="Item Image" class="item-image" />
-  </ng-container>
-  <div class="item-header">
-    <h3 class="item-title">{{ itemTitle }}</h3>
+    <div class="gradient-mask"></div>
   </div>
-  <div class="item-content">
+  <div class="item-details">
+    <h3 class="item-title">{{ itemTitle }}</h3>
     <div class="price">
       <img src="./assets/vbuck/vbuck-xs.png" alt="VBuck" />
       {{ item.finalPrice }}
