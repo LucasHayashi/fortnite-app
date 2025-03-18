@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FortniteService } from 'src/app/services/fortnite.service';
 import { Observable } from 'rxjs';
-import { IDataShop } from 'src/app/interfaces/shop';
+import { IDataShop, IDataShopCategory } from 'src/app/interfaces/shop';
 
 @Component({
   selector: 'app-shop',
@@ -11,12 +11,21 @@ import { IDataShop } from 'src/app/interfaces/shop';
 export class ShopComponent implements OnInit, OnDestroy {
   shop$: Observable<IDataShop>;
   tempoRestante: string = '';
+  selectedCategory: IDataShopCategory = null;
+  selectedSubCategory: IDataShopCategory = null;
   private intervalo: any;
 
-  constructor(private _fortniteService: FortniteService) {}
+  constructor(private _fortniteService: FortniteService) {
+    this.shop$ = this._fortniteService.getShop();
+  }
 
   ngOnInit(): void {
-    this.shop$ = this._fortniteService.getShop();
+    this.shop$.subscribe((shop) => {
+      if (shop.categories && shop.categories.length > 0) {
+        this.selectedCategory = shop.categories[0];
+        this.selectFirstSubCategory();
+      }
+    });
     this.atualizarTempoRestante();
     this.intervalo = setInterval(() => {
       this.atualizarTempoRestante();
@@ -29,7 +38,23 @@ export class ShopComponent implements OnInit, OnDestroy {
     }
   }
 
-  private atualizarTempoRestante(): void {
+  selectFirstSubCategory(): void {
+    if (this.selectedCategory?.sub_category?.length > 0) {
+      this.selectedSubCategory = this.selectedCategory.sub_category[0];
+    } else {
+      this.selectedSubCategory = null;
+    }
+  }
+
+  compareCategories(c1: IDataShopCategory, c2: IDataShopCategory): boolean {
+    return c1 && c2 && c1.name === c2.name;
+  }
+
+  compareSubCategories(c1: IDataShopCategory, c2: IDataShopCategory): boolean {
+    return c1 && c2 && c1.name === c2.name;
+  }
+
+  atualizarTempoRestante(): void {
     const agoraUTC = new Date().getTime();
     const amanhaUTC = new Date();
     amanhaUTC.setUTCHours(24, 0, 0, 0);

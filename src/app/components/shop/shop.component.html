@@ -2,59 +2,61 @@
   <h1 class="text-center">Loja de Itens</h1>
   <h2 class="text-center">Renova em {{ tempoRestante }}</h2>
 
-  <mat-tab-group
-    animationDuration="0ms"
-    mat-stretch-tabs="true"
-    [color]="'accent'"
-  >
-    <!-- Iteração sobre as categorias principais -->
-    <mat-tab
-      *ngFor="let category of shop.categories"
-      [label]="category.name + ' (' + category.total_items + ')'"
+  <mat-form-field appearance="fill" class="category-select">
+    <mat-label>Selecione uma categoria</mat-label>
+    <mat-select
+      [(value)]="selectedCategory"
+      (selectionChange)="selectFirstSubCategory()"
+      [compareWith]="compareCategories"
     >
-      <ng-template matTabContent>
-        <div class="shop-container">
-          <!-- Exibe os itens da categoria principal, se houver -->
-          <ng-container *ngIf="category.items && category.items.length > 0">
-            <ng-container *ngFor="let item of category.items">
-              <app-item [item]="item" class="item"></app-item>
-            </ng-container>
-          </ng-container>
+      <mat-option *ngFor="let category of shop.categories" [value]="category">
+        {{ category.name }} ({{ category.total_items }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-          <!-- Verifica se há subcategorias -->
-          <ng-container
-            *ngIf="category.sub_category && category.sub_category.length > 0"
-          >
-            <mat-accordion>
-              <mat-expansion-panel
-                *ngFor="let subCategory of category.sub_category"
-              >
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{ subCategory.name }} ({{ subCategory.total_items }})
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
+  <ng-container *ngIf="selectedCategory?.sub_category?.length > 0">
+    <mat-form-field appearance="fill" class="subcategory-select">
+      <mat-label>Selecione uma subcategoria</mat-label>
+      <mat-select
+        [(value)]="selectedSubCategory"
+        [compareWith]="compareSubCategories"
+      >
+        <mat-option
+          *ngFor="let subCategory of selectedCategory.sub_category"
+          [value]="subCategory"
+        >
+          {{ subCategory.name }} ({{ subCategory.total_items }})
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
 
-                <!-- Exibe os itens da subcategoria -->
-                <div class="shop-container">
-                  <ng-container
-                    *ngIf="subCategory.items && subCategory.items.length > 0"
-                  >
-                    <ng-container *ngFor="let item of subCategory.items">
-                      <app-item [item]="item" class="item"></app-item>
-                    </ng-container>
-                  </ng-container>
-                  <ng-container
-                    *ngIf="!subCategory.items || subCategory.items.length === 0"
-                  >
-                    <p>Nenhum item disponível nesta subcategoria.</p>
-                  </ng-container>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion>
-          </ng-container>
-        </div>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
+  <div class="shop-container">
+    <ng-container
+      *ngIf="!selectedSubCategory && selectedCategory?.items?.length > 0"
+    >
+      <ng-container *ngFor="let item of selectedCategory.items">
+        <app-item [item]="item" class="item"></app-item>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="selectedSubCategory?.items?.length > 0">
+      <ng-container *ngFor="let item of selectedSubCategory.items">
+        <app-item [item]="item" class="item"></app-item>
+      </ng-container>
+    </ng-container>
+
+    <ng-container
+      *ngIf="
+        (!selectedSubCategory &&
+          (!selectedCategory?.items || selectedCategory.items.length === 0)) ||
+        (selectedSubCategory &&
+          (!selectedSubCategory.items ||
+            selectedSubCategory.items.length === 0))
+      "
+    >
+      <p>Nenhum item disponível.</p>
+    </ng-container>
+  </div>
 </ng-container>

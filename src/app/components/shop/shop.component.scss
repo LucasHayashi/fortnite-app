@@ -12,3 +12,11 @@
 .item {
   flex: 1 0 200px;
 }
+
+.category-select,
+.subcategory-select {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  display: block;
+}
