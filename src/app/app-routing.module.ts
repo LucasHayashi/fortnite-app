@@ -6,6 +6,7 @@ import { NoticiasComponent } from './components/noticias/noticias.component';
 import { PlayerStatsComponent } from './components/player-stats/player-stats.component';
 import { MapComponent } from './components/map/map.component';
 import { ShopComponent } from './components/shop/shop.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'banners',
     component: BannersComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 

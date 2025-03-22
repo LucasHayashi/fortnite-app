@@ -28,6 +28,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ModalExpandirItemShopComponent } from './components/modals/modal-expandir-item-shop/modal-expandir-item-shop.component';
 import { BackgroundStyleDirective } from './directives/background-style.directive';
 import { GenericItemComponent } from './components/modals/modal-expandir-item-shop/generic-item/generic-item.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -53,6 +54,7 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     ModalExpandirItemShopComponent,
     BackgroundStyleDirective,
     GenericItemComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

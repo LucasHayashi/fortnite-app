@@ -1,0 +1,118 @@
+@use "@angular/material" as mat;
+
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: linear-gradient(135deg, #5b247a 0%, #1a6dea 100%);
+}
+
+.not-found-card {
+  max-width: 1000px;
+  width: 100%;
+  @include mat.elevation(8);
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.text-section {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    order: -1;
+    max-height: 400px;
+    margin-top: 24px;
+  }
+}
+
+.marshmello-image {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  animation: float 4s ease-in-out infinite;
+
+  @media (max-width: 767px) {
+    max-height: 300px;
+  }
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+  color: #5b247a;
+  letter-spacing: -2px;
+  margin-bottom: 0.5rem;
+}
+
+.error-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1a6dea;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+
+  button {
+    min-width: 150px;
+
+    mat-icon {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
