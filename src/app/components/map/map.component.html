@@ -1,5 +1,15 @@
 <ng-container *ngIf="map$ | async as map">
-  <div class="map-container">
-    <img src="{{ map.images.pois }}" alt="Mapa do Fortnite" />
+  <div #mapContainer class="map-container">
+    <div class="controls">
+      <button (click)="zoomIn()">+</button>
+      <button (click)="zoomOut()">-</button>
+      <button (click)="reset()">Reset</button>
+    </div>
+    <img
+      #mapImage
+      src="{{ map.images.pois }}"
+      alt="Mapa do Fortnite"
+      (load)="onImageLoad()"
+    />
   </div>
 </ng-container>

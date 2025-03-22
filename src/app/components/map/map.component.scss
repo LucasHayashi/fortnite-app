@@ -1,8 +1,30 @@
 .map-container {
-    max-width: 1024px;
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
+  max-width: 1024px;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform-origin: 0 0;
+    transition: transform 0.2s ease-out;
+    touch-action: none;
+  }
+
+  .controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+
+    button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      cursor: pointer;
     }
+  }
 }
