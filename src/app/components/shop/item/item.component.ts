@@ -1,16 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalExpandirItemsComponent } from '../../modals/modal-expandir-items/modal-expandir-items.component';
-import {
-  IBrItemsEntity,
-  ICarsEntity,
-  IEntriesEntity,
-  IInstrumentsEntity,
-  ITracksEntity,
-} from 'src/app/interfaces/shop';
-import { ModalExpandirMusicaComponent } from '../../modals/modal-expandir-musica/modal-expandir-musica.component';
-import { ModalExpandirCarroComponent } from '../../modals/modal-expandir-carro/modal-expandir-carro.component';
-import { ModalExpandirInstrumentoComponent } from '../../modals/modal-expandir-instrumento/modal-expandir-instrumento.component';
+import { IEntriesEntity } from 'src/app/interfaces/shop';
+import { ModalExpandirItemShopComponent } from '../../modals/modal-expandir-item-shop/modal-expandir-item-shop.component';
 
 @Component({
   selector: 'app-item',
@@ -28,9 +19,6 @@ export class ItemComponent implements OnInit {
   constructor(private _dialog: MatDialog) {}
 
   ngOnInit(): void {
-    if (this.item.layout?.name == 'AC Milan x PUMA x Off-White | Nimbus') {
-      console.log(this.item);
-    }
     if (this.item.tracks?.length) {
       this.isMusic = true;
     } else if (this.item.instruments?.length) {
@@ -87,67 +75,8 @@ export class ItemComponent implements OnInit {
   }
 
   expandir(item: IEntriesEntity) {
-    if (item.bundle?.name) {
-      if (item.brItems?.length) {
-        this.expandirPacote(item.brItems);
-      } else if (item.tracks?.length) {
-        this.expandirMusica(item.tracks);
-      } else if (item.cars?.length) {
-        this.expandirCarro(item.cars);
-      } else if (item.instruments?.length) {
-        this.expandirInstrument(item.instruments);
-      }
-    } else if (item.tracks?.length) {
-      this.expandirMusica(item.tracks);
-    } else if (item.cars?.length) {
-      this.expandirCarro(item.cars);
-    } else if (item.instruments?.length) {
-      this.expandirInstrument(item.instruments);
-    } else {
-      if (item.brItems?.length) {
-        this.expandirPacote(item.brItems);
-      } else {
-        console.log('Sem nada pra mostrar', item);
-      }
-    }
-  }
-
-  expandirPacote(bundle: IBrItemsEntity[]): void {
-    this._dialog.open(ModalExpandirItemsComponent, {
-      data: bundle,
+    this._dialog.open(ModalExpandirItemShopComponent, {
+      data: item,
     });
-  }
-
-  expandirMusica(track: ITracksEntity[]) {
-    this._dialog.open(ModalExpandirMusicaComponent, { data: track });
-  }
-
-  expandirCarro(car: ICarsEntity[]) {
-    this._dialog.open(ModalExpandirCarroComponent, { data: car });
-  }
-
-  expandirInstrument(instrument: IInstrumentsEntity[]) {
-    this._dialog.open(ModalExpandirInstrumentoComponent, { data: instrument });
-  }
-
-  getBackgroundStyle(colors: any): any {
-    if (colors) {
-      const gradientColors = [`#${colors.color1}`];
-      if (colors.color2) {
-        gradientColors.push(`#${colors.color2}`);
-      }
-      if (colors.color3) {
-        gradientColors.push(`#${colors.color3}`);
-      }
-      return {
-        background: `linear-gradient(to bottom, ${gradientColors.join(', ')})`,
-      };
-    } else {
-      return {
-        'background-image': `url(${this.image})`,
-        'background-size': 'cover',
-        'background-position': 'center',
-      };
-    }
   }
 }

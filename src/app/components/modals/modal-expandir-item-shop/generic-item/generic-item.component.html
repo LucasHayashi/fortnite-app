@@ -1,0 +1,85 @@
+<mat-card class="item-card" [appBackgroundStyle]="colors">
+  <mat-card-header class="item-card-header">
+    <mat-card-title class="item-title">{{
+      item.name || item.title
+    }}</mat-card-title>
+    <mat-card-subtitle class="item-subtitle">
+      <ng-container *ngIf="item.type">{{
+        item.type.displayValue
+      }}</ng-container>
+      <ng-container *ngIf="item.rarity">
+        - {{ item.rarity.displayValue }}</ng-container
+      >
+      <ng-container *ngIf="item.artist">
+        {{ item.artist }}
+        <ng-container *ngIf="item.releaseYear">
+          ({{ item.releaseYear }})</ng-container
+        >
+      </ng-container>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="item-card-content">
+    <div class="item-image-container">
+      <img
+        class="item-image"
+        [src]="
+          item.images?.featured ||
+          item.images?.icon ||
+          item.images?.albumArt ||
+          item.images?.large ||
+          item.images?.small ||
+          item.albumArt
+        "
+        [alt]="'Imagem de ' + (item.name || item.title)"
+      />
+    </div>
+
+    <div class="item-details">
+      <p *ngIf="item.description">
+        <strong class="detail-label">Descrição:</strong> {{ item.description }}
+      </p>
+      <p *ngIf="item.added">
+        <strong class="detail-label">Adicionado em:</strong>
+        {{ item.added | date : "dd/MM/yyyy" }}
+      </p>
+      <p *ngIf="item.bpm">
+        <strong class="detail-label">BPM:</strong> {{ item.bpm }}
+      </p>
+      <p *ngIf="item.duration">
+        <strong class="detail-label">Duração:</strong>
+        {{ item.duration }} segundos
+      </p>
+    </div>
+
+    <div *ngIf="item.difficulty" class="item-difficulty">
+      <h4 class="difficulty-title">Dificuldade</h4>
+      <ul class="difficulty-list">
+        <li *ngIf="item.difficulty.vocals">
+          <strong class="detail-label">Vocais:</strong>
+          {{ item.difficulty.vocals }}/5
+        </li>
+        <li *ngIf="item.difficulty.guitar">
+          <strong class="detail-label">Guitarra:</strong>
+          {{ item.difficulty.guitar }}/5
+        </li>
+        <li *ngIf="item.difficulty.bass">
+          <strong class="detail-label">Baixo:</strong>
+          {{ item.difficulty.bass }}/5
+        </li>
+        <li *ngIf="item.difficulty.plasticBass">
+          <strong class="detail-label">Baixo (Plástico):</strong>
+          {{ item.difficulty.plasticBass }}/5
+        </li>
+        <li *ngIf="item.difficulty.drums">
+          <strong class="detail-label">Bateria:</strong>
+          {{ item.difficulty.drums }}/5
+        </li>
+        <li *ngIf="item.difficulty.plasticDrums">
+          <strong class="detail-label">Bateria (Plástico):</strong>
+          {{ item.difficulty.plasticDrums }}/5
+        </li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -23,12 +23,11 @@ import { ModePanelComponent } from './components/player-stats/mode-panel/mode-pa
 import { MapComponent } from './components/map/map.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ItemComponent } from './components/shop/item/item.component';
-import { ModalExpandirItemsComponent } from './components/modals/modal-expandir-items/modal-expandir-items.component';
-import { ModalExpandirMusicaComponent } from './components/modals/modal-expandir-musica/modal-expandir-musica.component';
-import { ModalExpandirCarroComponent } from './components/modals/modal-expandir-carro/modal-expandir-carro.component';
-import { ModalExpandirInstrumentoComponent } from './components/modals/modal-expandir-instrumento/modal-expandir-instrumento.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ModalExpandirItemShopComponent } from './components/modals/modal-expandir-item-shop/modal-expandir-item-shop.component';
+import { BackgroundStyleDirective } from './directives/background-style.directive';
+import { GenericItemComponent } from './components/modals/modal-expandir-item-shop/generic-item/generic-item.component';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -51,10 +50,9 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     MapComponent,
     ShopComponent,
     ItemComponent,
-    ModalExpandirItemsComponent,
-    ModalExpandirMusicaComponent,
-    ModalExpandirCarroComponent,
-    ModalExpandirInstrumentoComponent,
+    ModalExpandirItemShopComponent,
+    BackgroundStyleDirective,
+    GenericItemComponent,
   ],
   imports: [
     BrowserModule,

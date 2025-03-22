@@ -1,0 +1,39 @@
+<div mat-dialog-content class="modal-items">
+  <!-- Battle Royale Item -->
+  <ng-container *ngIf="data?.brItems">
+    <ng-container *ngFor="let item of data.brItems">
+      <app-generic-item [item]="item" [colors]="data.colors"></app-generic-item>
+    </ng-container>
+  </ng-container>
+
+  <!-- Car Item -->
+  <ng-container *ngIf="data?.cars">
+    <ng-container *ngFor="let item of data.cars">
+      <app-generic-item [item]="item" [colors]="data.colors"></app-generic-item>
+    </ng-container>
+  </ng-container>
+
+  <!-- Track Item -->
+  <ng-container *ngIf="data?.tracks">
+    <ng-container *ngFor="let item of data.tracks">
+      <app-generic-item [item]="item" [colors]="data.colors"></app-generic-item>
+    </ng-container>
+  </ng-container>
+
+  <!-- Instrument Item -->
+  <ng-container *ngIf="data?.instruments">
+    <ng-container *ngFor="let item of data.instruments">
+      <app-generic-item [item]="item" [colors]="data.colors"></app-generic-item>
+    </ng-container>
+  </ng-container>
+
+  <!-- Lego Item -->
+  <ng-container *ngIf="data?.legoKits">
+    <ng-container *ngFor="let item of data.legoKits">
+      <app-generic-item [item]="item" [colors]="data.colors"></app-generic-item>
+    </ng-container>
+  </ng-container>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

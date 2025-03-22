@@ -1,6 +1,6 @@
 <div
   class="item-card"
-  [ngStyle]="getBackgroundStyle(item.colors)"
+  [appBackgroundStyle]="item.colors"
   matRipple
   (click)="expandir(item)"
 >

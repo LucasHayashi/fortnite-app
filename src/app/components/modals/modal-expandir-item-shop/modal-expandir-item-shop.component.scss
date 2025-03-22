@@ -1,0 +1,9 @@
+.modal-items {
+  max-width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  overflow-y: auto;
+}

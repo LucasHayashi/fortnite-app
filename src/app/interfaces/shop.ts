@@ -1,3 +1,32 @@
+export interface IGenericItem {
+  name?: string;
+  title?: string;
+  description?: string;
+  albumArt?: string;
+  type?: { displayValue: string };
+  rarity?: { displayValue: string };
+  images?: {
+    large?: string;
+    small?: string;
+    featured?: string;
+    icon?: string;
+    albumArt?: string;
+  };
+  added?: string;
+  artist?: string;
+  releaseYear?: number;
+  bpm?: number;
+  duration?: number;
+  difficulty?: {
+    vocals?: number;
+    guitar?: number;
+    bass?: number;
+    plasticBass?: number;
+    drums?: number;
+    plasticDrums?: number;
+  };
+}
+
 export interface IShop {
   status: number;
   data: IDataShop;
@@ -34,6 +63,7 @@ export interface IEntriesEntity {
   newDisplayAssetPath?: string | null;
   tracks?: ITracksEntity[] | null;
   colors?: IColors | null;
+  legoKits: ILegoEntity[] | null;
   displayAssetPath?: string | null;
   newDisplayAsset?: INewDisplayAsset | null;
   brItems?: IBrItemsEntity[] | null;
@@ -186,6 +216,14 @@ export interface IInstrumentsEntity {
   description: string;
   type: ITypeOrRarity;
   rarity: ITypeOrRarity;
+  images: ILegoOrBeanOrImages2;
+  added: string;
+  series?: ISeries1 | null;
+}
+export interface ILegoEntity {
+  id: string;
+  name: string;
+  type: ITypeOrRarity;
   images: ILegoOrBeanOrImages2;
   added: string;
   series?: ISeries1 | null;
