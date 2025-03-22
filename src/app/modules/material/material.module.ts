@@ -21,6 +21,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [],
@@ -47,6 +50,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatRippleModule,
     MatSelectModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatFormFieldModule,
   ],
   exports: [
     MatButtonModule,
@@ -70,6 +77,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatRippleModule,
     MatSelectModule,
+    MatGridListModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatFormFieldModule,
   ],
 })
 export class MaterialModule {}

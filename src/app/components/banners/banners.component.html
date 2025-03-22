@@ -1,11 +1,7 @@
 <div class="banners-container">
-  <div class="banner" *ngFor="let banner of currentBannerList">
+  <div class="banner mat-elevation-z2" *ngFor="let banner of currentBannerList">
     <div class="image" (click)="expandirIcone(banner)">
-      <img
-        mat-card-image
-        src="{{ banner.images.smallIcon }}"
-        alt="{{ banner.name }}"
-      />
+      <img mat-card-image [src]="banner.images.smallIcon" [alt]="banner.name" />
     </div>
   </div>
 </div>

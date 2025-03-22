@@ -4,6 +4,7 @@ import { IBanners } from 'src/app/interfaces/banners';
 import { ModalExpandirIconeComponent } from '../modals/modal-expandir-icone/modal-expandir-icone.component';
 import { PageEvent } from '@angular/material/paginator';
 import { FortniteService } from 'src/app/services/fortnite.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-banners',
@@ -21,7 +22,8 @@ export class BannersComponent {
 
   constructor(
     private _fortniteService: FortniteService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit(): void {
@@ -43,12 +45,16 @@ export class BannersComponent {
   }
 
   handlePageEvent(e: PageEvent) {
+    this.loadingService.show();
     this.pageEvent = e;
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex;
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = Math.min(startIndex + this.pageSize, this.banners.length);
     this.currentBannerList = this.banners.slice(startIndex, endIndex);
+    setTimeout(() => {
+      this.loadingService.hide();
+    }, 300);
   }
 
   expandirIcone(data: any) {

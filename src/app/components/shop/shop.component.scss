@@ -1,22 +1,262 @@
-.shop-container {
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 8px;
-  box-sizing: border-box;
+// Utilização das variáveis e classes do Angular Material por padrão
+
+// Espaçamentos (utilitários)
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Breakpoints (usando os mesmos do Angular Material)
+$breakpoint-xs: 599px;
+$breakpoint-sm: 959px;
+$breakpoint-md: 1279px;
+$breakpoint-lg: 1919px;
+
+// Utilitários de espaçamento
+.m-0 {
+  margin: 0;
+}
+.mt-3 {
+  margin-top: $spacing-md;
+}
+.mb-4 {
+  margin-bottom: $spacing-lg;
+}
+.p-4 {
+  padding: $spacing-lg;
 }
 
-.item {
-  flex: 1 0 200px;
-}
-
-.category-select,
-.subcategory-select {
+// Utilitários de layout
+.w-100 {
   width: 100%;
-  max-width: 300px;
+}
+.text-center {
+  text-align: center;
+}
+
+// Utilitários de cor (usando cores do tema Material)
+.text-secondary {
+  opacity: 0.7;
+}
+
+// Layouts principais
+.shop-page {
+  max-width: 1200px;
   margin: 0 auto;
-  display: block;
+  padding: $spacing-xs;
+  padding-bottom: 80px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Cabeçalho
+.shop-header {
+  margin-bottom: $spacing-lg;
+
+  .title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .timer-chip {
+      display: flex;
+      align-items: center;
+      gap: $spacing-xs;
+
+      mat-icon {
+        margin-right: $spacing-xs;
+      }
+    }
+  }
+}
+
+// Navegação de categorias
+.category-navigation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-xs) {
+    flex-direction: column;
+  }
+
+  .category-selector {
+    flex: 1;
+    width: 100%;
+    max-width: 500px;
+
+    @media (max-width: $breakpoint-xs) {
+      max-width: none;
+    }
+  }
+
+  .category-controllers {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  .category-indicator {
+    min-width: 60px;
+    text-align: center;
+  }
+}
+
+// Subcategorias
+.subcategory-container {
+  margin-top: $spacing-md;
+  overflow-x: auto;
+  padding: $spacing-xs 0;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+  }
+
+  .subcategory-chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: $spacing-xs 0;
+
+    @media (min-width: $breakpoint-xs) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Seção de itens
+.items-section {
+  .section-title {
+    margin: 0 0 $spacing-lg;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      border-radius: 2px;
+      // Usa a cor primária do tema
+      background-color: var(--mat-primary-500);
+    }
+  }
+}
+
+// Grid de itens
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: $spacing-sm;
+  }
+
+  .item {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+// Estado vazio
+.empty-state {
+  padding: $spacing-xl $spacing-lg;
+  animation: fadeIn 0.3s ease-in-out;
+
+  .empty-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin-bottom: $spacing-md;
+    opacity: 0.5;
+  }
+}
+
+// Loading state
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+// Navegação mobile
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: $spacing-md;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--mat-primary-700);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 28px;
+  padding: $spacing-sm $spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  z-index: 100;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
+  .category-indicator {
+    color: white;
+    min-width: 60px;
+    text-align: center;
+  }
+}
+
+// Estilizações específicas para os componentes Material
+::ng-deep {
+  // Melhor alinhamento para ícones em chips
+  .mat-mdc-chip-action-label {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  // Apenas estilos não disponíveis nativamente
+  .mat-mdc-chip {
+    &.mdc-evolution-chip--selected {
+      .mdc-evolution-chip__text-label {
+        color: white;
+      }
+    }
+
+    &:hover:not(.mdc-evolution-chip--disabled) {
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+    }
+  }
 }

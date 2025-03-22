@@ -28,9 +28,11 @@ import { ModalExpandirMusicaComponent } from './components/modals/modal-expandir
 import { ModalExpandirCarroComponent } from './components/modals/modal-expandir-carro/modal-expandir-carro.component';
 import { ModalExpandirInstrumentoComponent } from './components/modals/modal-expandir-instrumento/modal-expandir-instrumento.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
+  subscriptSizing: 'dynamic',
 };
 
 @NgModule({
@@ -62,6 +64,7 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    LayoutModule,
   ],
   providers: [
     {

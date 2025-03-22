@@ -12,3 +12,45 @@ body {
 .text-center {
   text-align: center;
 }
+
+// Utilização de variáveis e mixins do Angular Material
+
+// Espaçamentos
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Breakpoints (usando os mesmos do Angular Material)
+$breakpoint-xs: 599px;
+$breakpoint-sm: 959px;
+$breakpoint-md: 1279px;
+$breakpoint-lg: 1919px;
+
+// Utilitários de espaçamento
+.m-0 {
+  margin: 0;
+}
+.mt-3 {
+  margin-top: $spacing-md;
+}
+.mb-4 {
+  margin-bottom: $spacing-lg;
+}
+.p-4 {
+  padding: $spacing-lg;
+}
+
+// Utilitários de layout
+.w-100 {
+  width: 100%;
+}
+.text-center {
+  text-align: center;
+}
+
+// Utilitários de cor (usando cores do tema Material)
+.text-secondary {
+  opacity: 0.7;
+}

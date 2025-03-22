@@ -1,19 +1,92 @@
+// Utilização de variáveis e mixins do Angular Material
+
+// Espaçamentos
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Breakpoints (usando os mesmos do Angular Material)
+$breakpoint-xs: 599px;
+$breakpoint-sm: 959px;
+$breakpoint-md: 1279px;
+$breakpoint-lg: 1919px;
+
+// Utilitários de espaçamento
+.m-0 {
+  margin: 0;
+}
+.mt-3 {
+  margin-top: $spacing-md;
+}
+.mb-4 {
+  margin-bottom: $spacing-lg;
+}
+.p-4 {
+  padding: $spacing-lg;
+}
+
+// Utilitários de layout
+.w-100 {
+  width: 100%;
+}
+.text-center {
+  text-align: center;
+}
+
+// Utilitários de cor (usando cores do tema Material)
+.text-secondary {
+  opacity: 0.7;
+}
+
+// Estilos dos banners
 .banners-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
 
-    .banner {
-        margin: 1.25rem;
+  .banner {
+    margin: $spacing-xs;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        .image {
-            max-width: 128px;
-            cursor: pointer;
-
-            img {
-                display: block;
-                width: 100%;
-            }
-        }
+    &:hover {
+      transform: translateY(-4px);
     }
+
+    .image {
+      max-width: 128px;
+      cursor: pointer;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .banners-container {
+    gap: $spacing-xs;
+  }
+
+  .banner {
+    .image {
+      max-width: 100px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .banner {
+    .image {
+      max-width: 80px;
+    }
+  }
 }
