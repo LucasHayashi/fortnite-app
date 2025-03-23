@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FortniteService } from 'src/app/services/fortnite.service';
 import { Observable } from 'rxjs';
 import { IMap } from 'src/app/interfaces/map';
@@ -9,7 +9,7 @@ import * as Hammer from 'hammerjs';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
-export class MapComponent implements AfterViewInit {
+export class MapComponent {
   @ViewChild('mapImage') mapImage!: ElementRef<HTMLImageElement>;
   @ViewChild('mapContainer') mapContainer!: ElementRef<HTMLDivElement>;
   map$: Observable<IMap>;
@@ -24,8 +24,6 @@ export class MapComponent implements AfterViewInit {
   constructor(private _fortniteService: FortniteService) {
     this.map$ = this._fortniteService.getMap();
   }
-
-  ngAfterViewInit(): void {}
 
   onImageLoad() {
     this.isImageLoaded = true;

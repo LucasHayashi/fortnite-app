@@ -1,9 +1,4 @@
 export interface INews {
-  status: number;
-  data: Data;
-}
-
-export interface Data {
   br: Br;
   stw: Br;
   creative: null;

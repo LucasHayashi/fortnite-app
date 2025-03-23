@@ -1,27 +1,28 @@
 <div class="container">
-    <ng-container>
-        <ng-container *ngFor="let motds of noticia.motds">
-            <div class="motds">
-                <div class="motds-info">
-                    <div class="title">{{motds.tabTitle}}</div>
-                    <div class="sub-title">{{motds.title}}</div>
-                    <div class="body">{{motds.body}}</div>
-                </div>
-                <div class="motds-image">
-                    <img src="{{motds.tileImage}}" alt="{{motds.title}}" (click)="expandirImagem($event)">
-                </div>
-            </div>
-        </ng-container>
-        <ng-container *ngFor="let message of noticia.messages">
-            <div class="message">
-                <div class="message-info">
-                    <div class="title">{{message.title}}</div>
-                    <div class="body">{{message.body}}</div>
-                </div>
-                <div class="message-image">
-                    <img src="{{message.image}}" alt="{{message.title}}" (click)="expandirImagem($event)">
-                </div>
-            </div>
-        </ng-container>
-    </ng-container>
+  <mat-card *ngFor="let item of noticia.motds" class="noticia-item">
+    <mat-card-header>
+      <mat-card-title>{{ item.tabTitle }}</mat-card-title>
+      <mat-card-subtitle>{{ item.title }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="body">{{ item.body }}</div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button
+        mat-button
+        (click)="expandirImagem(item)"
+        (keydown.enter)="expandirImagem(item)"
+        (keydown.space)="expandirImagem(item)"
+        tabindex="0"
+      >
+        Expandir Imagem
+      </button>
+    </mat-card-actions>
+
+    <mat-card-footer class="noticia-image">
+      <img [src]="item.tileImage" [alt]="item.title" class="image" />
+    </mat-card-footer>
+  </mat-card>
 </div>

@@ -15,7 +15,7 @@ export interface Images {
   smallIcon?: string;
   icon?: string;
   featured?: string;
-  other?: Array<any>;
+  other?: unknown[];
 }
 
 export interface Introduction {

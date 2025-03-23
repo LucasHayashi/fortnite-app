@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IColors } from '../interfaces/shop';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +13,7 @@ export class StyleService {
     '#034fb1',
   ];
 
-  constructor() {}
-
-  getBackgroundStyle(colors: any): any {
+  getBackgroundStyle(colors: IColors): object {
     let gradientColors = [];
 
     if (colors && colors.color1) {

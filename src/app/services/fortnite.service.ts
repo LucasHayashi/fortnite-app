@@ -4,11 +4,12 @@ import { map, Observable } from 'rxjs';
 import { IBanners } from '../interfaces/banners';
 import { IMap } from '../interfaces/map';
 import { INews } from '../interfaces/news';
-import { IDataShop, IShop } from '../interfaces/shop';
 import { ICosmetics } from '../interfaces/cosmetics';
 import { IPlayerStats } from '../interfaces/player-stats';
 import { ISearchPlayer } from '../interfaces/search-player';
 import { TPlatform } from '../types/platform';
+import { DefaultResponse } from '../interfaces/default-response';
+import { IShop } from '../interfaces/shop';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class FortniteService {
 
   getBanners(): Observable<IBanners[]> {
     return this._fortniteApiService
-      .get<any>('banners', { language: 'pt-BR' })
+      .get<DefaultResponse<IBanners[]>>('banners', { language: 'pt-BR' })
       .pipe(
         map((data) => {
           return data.data;
@@ -28,17 +29,21 @@ export class FortniteService {
 
   getMap(): Observable<IMap> {
     return this._fortniteApiService
-      .get<any>('map', { language: 'pt-BR' })
+      .get<DefaultResponse<IMap>>('map', { language: 'pt-BR' })
       .pipe(map((value) => value.data));
   }
 
   getNews(): Observable<INews> {
-    return this._fortniteApiService.get<any>('news', { language: 'pt-BR' });
+    return this._fortniteApiService
+      .get<DefaultResponse<INews>>('news', {
+        language: 'pt-BR',
+      })
+      .pipe(map((value) => value.data));
   }
 
-  getShop(): Observable<IDataShop> {
+  getShop(): Observable<IShop> {
     return this._fortniteApiService
-      .get<IShop>('shop', { language: 'pt-BR' })
+      .get<DefaultResponse<IShop>>('shop', { language: 'pt-BR' })
       .pipe(
         map((response) => {
           return response.data;

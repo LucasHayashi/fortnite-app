@@ -9,5 +9,5 @@ import { IDuoOrTrioOrSquadOrSolo } from 'src/app/interfaces/player-stats';
 export class ModePanelComponent {
   @Input() playerStats: IDuoOrTrioOrSquadOrSolo;
   @Input() playerMode: string;
-  @Input() expanded: boolean = false;
+  @Input() expanded = false;
 }

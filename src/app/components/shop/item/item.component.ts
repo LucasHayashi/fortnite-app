@@ -11,9 +11,9 @@ import { ModalExpandirItemShopComponent } from '../../modals/modal-expandir-item
 export class ItemComponent implements OnInit {
   @Input() item: IEntriesEntity;
   image: string;
-  isMusic: boolean = false;
-  isCar: boolean = false;
-  isInstruments: boolean = false;
+  isMusic = false;
+  isCar = false;
+  isInstruments = false;
   itemTitle: string;
 
   constructor(private _dialog: MatDialog) {}

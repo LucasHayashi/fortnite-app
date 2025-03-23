@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatDrawerMode } from '@angular/material/sidenav';
+import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { LoadingService } from './services/loading.service';
@@ -12,7 +12,7 @@ export type LinkType = 'linkedin' | 'whatsapp' | 'github' | 'twitter';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'fornite-app';
   navItems = [
     { link: '', title: 'Loja de Itens', icon: 'storefront' },
@@ -24,7 +24,7 @@ export class AppComponent {
   ];
 
   mode: MatDrawerMode;
-  isMobile: boolean = false;
+  isMobile = false;
   projectUrl: string = window.location.origin;
   isLoading$ = this.loadingService.loading$;
 
@@ -65,8 +65,8 @@ export class AppComponent {
   }
 
   openLink(type: LinkType): void {
-    let uriProject = encodeURIComponent(this.projectUrl);
-    let links = {
+    const uriProject = encodeURIComponent(this.projectUrl);
+    const links = {
       whatsapp: `https://api.whatsapp.com/send?text=${uriProject}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${uriProject}`,
       twitter: `https://twitter.com/intent/tweet?url=${uriProject}`,
@@ -79,7 +79,7 @@ export class AppComponent {
     this.openLink(type);
   }
 
-  onNavItemClick(drawer: any) {
+  onNavItemClick(drawer: MatDrawer) {
     if (this.isMobile) {
       drawer.close();
     }

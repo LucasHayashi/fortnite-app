@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IBanners } from 'src/app/interfaces/banners';
 import { ModalExpandirIconeComponent } from '../modals/modal-expandir-icone/modal-expandir-icone.component';
@@ -11,12 +11,12 @@ import { LoadingService } from 'src/app/services/loading.service';
   templateUrl: './banners.component.html',
   styleUrls: ['./banners.component.scss'],
 })
-export class BannersComponent {
-  banners: Array<IBanners> = [];
-  currentBannerList: Array<IBanners>;
-  showFirstLastButtons: boolean = true;
-  pageSize: number = 30;
-  pageIndex: number = 0;
+export class BannersComponent implements OnInit {
+  banners: IBanners[] = [];
+  currentBannerList: IBanners[];
+  showFirstLastButtons = true;
+  pageSize = 30;
+  pageIndex = 0;
   pageSizeOptions = [30, 40, 60, 80, 100];
   pageEvent: PageEvent;
 
@@ -33,12 +33,12 @@ export class BannersComponent {
     });
 
     this.dialog.afterOpened.subscribe((data) => {
-      let img = new Image();
+      const img = new Image();
       img.src = data.componentInstance.data.images.icon;
-      img.onload = function (event: any) {
-        let root: HTMLStyleElement | null = document.querySelector(':root');
-        let loadedImage = event.currentTarget;
-        let width = loadedImage.width;
+      img.onload = function (event: Event) {
+        const root: HTMLStyleElement | null = document.querySelector(':root');
+        const loadedImage = event.currentTarget as HTMLImageElement;
+        const width = loadedImage.width;
         root?.style.setProperty('--descriptionSize', width + 'px');
       };
     });
@@ -57,7 +57,7 @@ export class BannersComponent {
     }, 300);
   }
 
-  expandirIcone(data: any) {
+  expandirIcone(data: IBanners) {
     this.dialog.open(ModalExpandirIconeComponent, {
       data,
     });

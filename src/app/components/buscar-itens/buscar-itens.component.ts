@@ -2,18 +2,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   catchError,
   debounceTime,
   distinctUntilChanged,
   filter,
-  finalize,
   map,
+  Observable,
   of,
   repeat,
   switchMap,
-  tap,
 } from 'rxjs';
 import { ICosmetic } from 'src/app/interfaces/cosmetic';
 import { FortniteItem } from 'src/app/models/FortniteItem';
@@ -29,7 +27,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 export class BuscarItensComponent {
   PAUSA = 500;
   nomeDoItem: FormControl = new FormControl('');
-  listaDeItens$ = this.nomeDoItem.valueChanges.pipe(
+  listaDeItens$: Observable<FortniteItem[]> = this.nomeDoItem.valueChanges.pipe(
     debounceTime(this.PAUSA),
     filter((valorDigitado) => valorDigitado.length >= 3),
     distinctUntilChanged(),
@@ -65,9 +63,9 @@ export class BuscarItensComponent {
     });
   }
 
-  getBackgroundRadial(cores: any): string {
+  getBackgroundRadial(cores: string[]): string {
     if (cores) {
-      return cores.map((cor, idx) => '#' + cor).join(', ');
+      return cores.map((cor) => '#' + cor).join(', ');
     }
     return ['#1ed2eb', '#17b4dd', '#0f8ecd', '#065fb9', '#034fb1'].join(', ');
   }

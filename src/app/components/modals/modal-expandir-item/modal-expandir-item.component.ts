@@ -10,7 +10,7 @@ import { ICosmetic } from 'src/app/interfaces/cosmetic';
 export class ModalExpandirItemComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: ICosmetic) {}
 
-  getBackgroundRadial(cores: any): string {
+  getBackgroundRadial(cores: string[]): string {
     if (cores) {
       return cores.map((cor) => '#' + cor).join(', ');
     }

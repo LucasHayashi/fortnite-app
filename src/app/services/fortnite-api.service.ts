@@ -11,7 +11,7 @@ export class FortniteApiService {
 
   constructor(private http: HttpClient) {}
 
-  get<T>(endpoint: string, params?: any): Observable<T> {
+  get<T>(endpoint: string, params?: unknown): Observable<T> {
     let httpParams = new HttpParams();
     if (params) {
       Object.keys(params).forEach((key) => {
@@ -23,15 +23,15 @@ export class FortniteApiService {
     });
   }
 
-  post<T>(endpoint: string, body: any): Observable<T> {
+  post<T>(endpoint: string, body: unknown): Observable<T> {
     return this.http.post<T>(`${this.apiUrl}/${endpoint}`, body);
   }
 
-  put<T>(endpoint: string, body: any): Observable<T> {
+  put<T>(endpoint: string, body: unknown): Observable<T> {
     return this.http.put<T>(`${this.apiUrl}/${endpoint}`, body);
   }
 
-  delete<T>(endpoint: string, params?: any): Observable<T> {
+  delete<T>(endpoint: string, params?: unknown): Observable<T> {
     let httpParams = new HttpParams();
     if (params) {
       Object.keys(params).forEach((key) => {

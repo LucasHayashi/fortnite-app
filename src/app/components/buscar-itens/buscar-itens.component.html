@@ -19,14 +19,24 @@
 
 <div class="items-container">
   <ng-container *ngFor="let item of listaDeItens$ | async as listaDeItens">
-    <div class="item" id="{{ item.id }}" (click)="expandirItem(item)">
+    <div
+      class="item"
+      matRipple
+      [id]="item.id"
+      (click)="expandirItem(item)"
+      (keydown.enter)="expandirItem(item)"
+      (keydown.space)="expandirItem(item)"
+      tabindex="0"
+      role="button"
+      [attr.aria-label]="'Expandir ' + item.name"
+    >
       <div
         class="item-image"
         [ngStyle]="{
           '--gradiente-colors': getBackgroundRadial(item.series?.colors)
         }"
       >
-        <img src="{{ item.images?.icon }}" />
+        <img [src]="item.images?.icon" [alt]="item.name" />
       </div>
     </div>
   </ng-container>

@@ -1,8 +1,21 @@
-<h1 mat-dialog-title>{{data.name}}</h1>
-<div mat-dialog-content>
-    <img src="{{data.images.icon}}">
-    <p>{{data.description}}</p>
+<h1 mat-dialog-title>{{ data.name }}</h1>
+<div mat-dialog-content class="modal-content">
+  <div class="image-container">
+    <img
+      #iconImage
+      [src]="data.images.icon"
+      [alt]="data.name"
+      (load)="onImageLoad()"
+      (error)="onImageError()"
+      [style.display]="isLoading ? 'none' : 'block'"
+    />
+    <mat-spinner *ngIf="isLoading" [diameter]="50" color="accent"></mat-spinner>
+    <div *ngIf="imageError" class="error-message">
+      Não foi possível carregar a imagem.
+    </div>
+  </div>
+  <p>{{ data.description }}</p>
 </div>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Fechar</button>
+  <button mat-button mat-dialog-close>Fechar</button>
 </mat-dialog-actions>

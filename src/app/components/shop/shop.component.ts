@@ -6,8 +6,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FortniteService } from 'src/app/services/fortnite.service';
-import { Observable, Subscription, map } from 'rxjs';
-import { IDataShop, IDataShopCategory } from 'src/app/interfaces/shop';
+import { Observable, Subscription } from 'rxjs';
+import { IDataShopCategory, IShop } from 'src/app/interfaces/shop';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { LoadingService } from 'src/app/services/loading.service';
 
@@ -17,15 +17,15 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent implements OnInit, OnDestroy {
-  shop$: Observable<IDataShop>;
-  tempoRestante: string = '';
+  shop$: Observable<IShop>;
+  tempoRestante = '';
   selectedCategory: IDataShopCategory = null;
   selectedSubCategory: IDataShopCategory = null;
-  selectedCategoryIndex: number = 0;
+  selectedCategoryIndex = 0;
   categories: IDataShopCategory[] = [];
-  isMobile: boolean = false;
+  isMobile = false;
   @ViewChild('categoryTitle') categoryTitle!: ElementRef;
-  private intervalo: any;
+  private intervalo: ReturnType<typeof setInterval> | null = null;
 
   private subscriptions = new Subscription();
 

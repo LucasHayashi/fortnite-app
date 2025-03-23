@@ -3,6 +3,11 @@
   [appBackgroundStyle]="item.colors"
   matRipple
   (click)="expandir(item)"
+  (keydown.enter)="expandir(item)"
+  (keydown.space)="expandir(item)"
+  tabindex="0"
+  role="button"
+  [attr.aria-label]="'Expandir ' + itemTitle"
 >
   <div class="image-container">
     <img [src]="image" alt="Item Image" class="item-image" />

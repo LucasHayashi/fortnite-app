@@ -27,10 +27,11 @@
       <img
         src="{{ data.images?.featured }}"
         *ngIf="data.images?.featured; else icon"
+        alt="{{ data.name }}"
       />
     </div>
     <ng-template #icon>
-      <img src="{{ data.images?.icon }}" />
+      <img src="{{ data.images?.icon }}" alt="{{ data.name }}" />
     </ng-template>
   </div>
   <div class="info-section" *ngIf="data.variants">

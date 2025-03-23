@@ -1,7 +1,4 @@
-<div
-  class="shop-page mat-app-background"
-  *ngIf="shop$ | async as shop; else loading"
->
+<div class="shop-page mat-app-background" *ngIf="shop$ | async as shop">
   <!-- Cabeçalho com título e tempo de renovação -->
   <header class="shop-header">
     <div class="title-section">
@@ -168,11 +165,3 @@
     </button>
   </div>
 </div>
-
-<!-- Loading state -->
-<ng-template #loading>
-  <div class="loading-container">
-    <mat-spinner diameter="50" aria-label="Carregando loja"></mat-spinner>
-    <p class="mat-body-1 mt-3">Carregando loja...</p>
-  </div>
-</ng-template>

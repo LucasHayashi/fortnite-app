@@ -32,8 +32,8 @@ export class PlayerStatsComponent {
     event.preventDefault();
 
     if (this.playerForm.valid) {
-      let name = this.playerForm.value.name;
-      let platform = this.playerForm.value.platform;
+      const name = this.playerForm.value.name;
+      const platform = this.playerForm.value.platform;
 
       this._fortniteService.searchPlayer(name, platform).subscribe((res) => {
         if (res.result) {
@@ -55,7 +55,7 @@ export class PlayerStatsComponent {
                 }
               }),
               catchError((error: HttpErrorResponse) => {
-                let errorMessage = error.message;
+                const errorMessage = error.message;
                 this._snackBarService.openSnackBar(errorMessage);
                 throw new Error(error.message);
               })

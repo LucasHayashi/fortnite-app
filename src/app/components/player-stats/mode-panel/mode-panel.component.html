@@ -4,30 +4,30 @@
       {{ playerMode }}
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <div class="items-container">
-    <mat-card class="item">
-      <mat-card-title>Vitórias</mat-card-title>
-      <mat-card-content>{{ playerStats.placetop1 }}</mat-card-content>
-    </mat-card>
-    <mat-card class="item">
-      <mat-card-title>WinRate</mat-card-title>
-      <mat-card-content>{{
+  <div class="stats-container mat-app-background">
+    <div class="stat-item">
+      <span class="stat-label">Vitórias</span>
+      <span class="stat-value">{{ playerStats.placetop1 }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">WinRate</span>
+      <span class="stat-value">{{
         playerStats.winrate | percent : "1.2-2"
-      }}</mat-card-content>
-    </mat-card>
-    <mat-card class="item">
-      <mat-card-title>Partidas</mat-card-title>
-      <mat-card-content>{{ playerStats.matchesplayed }}</mat-card-content>
-    </mat-card>
-    <mat-card class="item">
-      <mat-card-title>Minutos Jogados</mat-card-title>
-      <mat-card-content>{{ playerStats.minutesplayed }}</mat-card-content>
-    </mat-card>
-    <mat-card class="item">
-      <mat-card-title>Última atualização</mat-card-title>
-      <mat-card-content>{{
+      }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Partidas</span>
+      <span class="stat-value">{{ playerStats.matchesplayed }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Minutos Jogados</span>
+      <span class="stat-value">{{ playerStats.minutesplayed }}</span>
+    </div>
+    <div class="stat-item last-updated">
+      <span class="stat-label">Última atualização</span>
+      <span class="stat-value">{{
         playerStats.lastmodified * 1000 | date : "dd/MM/yyyy hh:mm:ss a"
-      }}</mat-card-content>
-    </mat-card>
+      }}</span>
+    </div>
   </div>
 </mat-expansion-panel>

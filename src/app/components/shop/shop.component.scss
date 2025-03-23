@@ -200,16 +200,6 @@ $breakpoint-lg: 1919px;
   }
 }
 
-// Loading state
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 300px;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
 // Navegação mobile
 .mobile-bottom-nav {
   position: fixed;

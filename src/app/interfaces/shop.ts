@@ -28,10 +28,6 @@ export interface IGenericItem {
 }
 
 export interface IShop {
-  status: number;
-  data: IDataShop;
-}
-export interface IDataShop {
   hash: string;
   date: string;
   vbuckIcon: string;

@@ -1,10 +1,20 @@
 <div class="banners-container">
   <div class="banner mat-elevation-z2" *ngFor="let banner of currentBannerList">
-    <div class="image" (click)="expandirIcone(banner)">
+    <div
+      class="image"
+      (click)="expandirIcone(banner)"
+      (keydown.enter)="expandirIcone(banner)"
+      (keydown.space)="expandirIcone(banner)"
+      tabindex="0"
+      matRipple
+      role="button"
+      [attr.aria-label]="'Expandir ' + banner.name"
+    >
       <img mat-card-image [src]="banner.images.smallIcon" [alt]="banner.name" />
     </div>
   </div>
 </div>
+
 <mat-paginator
   [length]="banners.length"
   (page)="handlePageEvent($event)"
