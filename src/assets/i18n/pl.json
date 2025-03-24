@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "Udostępnij",
+    "description": "Opis",
+    "added_on": "Dodano",
+    "language": "Język",
+    "expand_image": "Rozwiń obraz",
+    "category": "Kategoria",
+    "select_page": "Wybierz stronę",
+    "expand": "Rozwiń",
+    "type": "Typ",
+    "launch": "Uruchom",
+    "favorite": "Ulubione {{appName}}",
+    "restart": "Uruchom ponownie",
+    "search": "Szukaj",
+    "close": "Zamknij"
+  },
+  "player": {
+    "enter_player_name": "Wpisz imię gracza",
+    "player_name": "Nazwa gracza",
+    "search": "Wyszukaj gracza",
+    "no_player_found": "Nie znaleziono gracza!",
+    "private_account": "Konto tego gracza jest prywatne",
+    "name_required": "Imię jest wymagane",
+    "name_min_length": "Nazwa gracza musi mieć co najmniej 3 znaki",
+    "level": "Poziom"
+  },
+  "item": {
+    "search_item": "Szukaj przedmiotu",
+    "no_item_found": "Nie znaleziono przedmiotu",
+    "no_item_available": "Brak dostępnych przedmiotów w tej kategorii.",
+    "renew_in": "Odnów za {{time}}",
+    "variations": "Wariacje"
+  },
+  "news": {
+    "news": "Aktualności"
+  },
+  "map": {
+    "map": "Mapa"
+  },
+  "banners": {
+    "banners": "Banery"
+  },
+  "shop": {
+    "item_shop": "Sklep z przedmiotami"
+  },
+  "error": {
+    "language_not_available": "Żądany język jest obecnie niedostępny.",
+    "fill_all_fields": "Proszę wypełnić wszystkie informacje w formularzu."
+  },
+  "game_modes": {
+    "solo": "Solo",
+    "duo": "Duo",
+    "trio": "Trio",
+    "squad": "Oddział"
+  },
+  "navigation": {
+    "back_to_main_category": "Powrót do głównej kategorii"
+  },
+  "status": {
+    "wins": "Zwycięstwa",
+    "winRate": "Procent wygranych",
+    "matches": "Mecze",
+    "minutesPlayed": "Minuty gry",
+    "lastUpdate": "Ostatnia aktualizacja"
+  }
+}

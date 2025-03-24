@@ -6,25 +6,25 @@
   </mat-expansion-panel-header>
   <div class="stats-container mat-app-background">
     <div class="stat-item">
-      <span class="stat-label">Vitórias</span>
+      <span class="stat-label">{{ "status.wins" | translate }}</span>
       <span class="stat-value">{{ playerStats.placetop1 }}</span>
     </div>
     <div class="stat-item">
-      <span class="stat-label">WinRate</span>
+      <span class="stat-label">{{ "status.winRate" | translate }}</span>
       <span class="stat-value">{{
         playerStats.winrate | percent : "1.2-2"
       }}</span>
     </div>
     <div class="stat-item">
-      <span class="stat-label">Partidas</span>
+      <span class="stat-label">{{ "status.matches" | translate }}</span>
       <span class="stat-value">{{ playerStats.matchesplayed }}</span>
     </div>
     <div class="stat-item">
-      <span class="stat-label">Minutos Jogados</span>
+      <span class="stat-label">{{ "status.minutesPlayed" | translate }}</span>
       <span class="stat-value">{{ playerStats.minutesplayed }}</span>
     </div>
     <div class="stat-item last-updated">
-      <span class="stat-label">Última atualização</span>
+      <span class="stat-label">{{ "status.lastUpdate" | translate }}</span>
       <span class="stat-value">{{
         playerStats.lastmodified * 1000 | date : "dd/MM/yyyy hh:mm:ss a"
       }}</span>

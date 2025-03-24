@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "分享",
+    "description": "描述",
+    "added_on": "添加于",
+    "language": "语言",
+    "expand_image": "展开图片",
+    "category": "类别",
+    "select_page": "选择页面",
+    "expand": "展开",
+    "type": "类型",
+    "launch": "启动",
+    "favorite": "收藏 {{appName}}",
+    "restart": "重启",
+    "search": "搜索",
+    "close": "关闭"
+  },
+  "player": {
+    "enter_player_name": "输入玩家名称",
+    "player_name": "玩家名称",
+    "search": "搜索玩家",
+    "no_player_found": "未找到玩家！",
+    "private_account": "该玩家的帐户是私有的",
+    "name_required": "名称为必填项",
+    "name_min_length": "玩家名称必须至少包含 3 个字符",
+    "level": "等级"
+  },
+  "item": {
+    "search_item": "搜索物品",
+    "no_item_found": "未找到物品",
+    "no_item_available": "此类别中没有可用物品。",
+    "renew_in": "续订时间 {{time}}",
+    "variations": "变体"
+  },
+  "news": {
+    "news": "新闻"
+  },
+  "map": {
+    "map": "地图"
+  },
+  "banners": {
+    "banners": "横幅"
+  },
+  "shop": {
+    "item_shop": "物品商店"
+  },
+  "error": {
+    "language_not_available": "请求的语言目前不可用。",
+    "fill_all_fields": "请填写所有表格信息。"
+  },
+  "game_modes": {
+    "solo": "单人",
+    "duo": "双人",
+    "trio": "三人",
+    "squad": "小队"
+  },
+  "navigation": {
+    "back_to_main_category": "返回主类别"
+  },
+  "status": {
+    "wins": "胜利",
+    "winRate": "胜率",
+    "matches": "比赛",
+    "minutesPlayed": "分钟游戏",
+    "lastUpdate": "最后更新"
+  }
+}

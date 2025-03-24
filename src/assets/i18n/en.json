@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "Share",
+    "description": "Description",
+    "added_on": "Added on",
+    "language": "Language",
+    "expand_image": "Expand Image",
+    "category": "Category",
+    "select_page": "Select page",
+    "expand": "Expand",
+    "type": "Type",
+    "launch": "Launch",
+    "favorite": "Star {{appName}}",
+    "restart": "Restart",
+    "search": "Search",
+    "close": "Close"
+  },
+  "player": {
+    "enter_player_name": "Enter player name",
+    "player_name": "Player name",
+    "search": "Search Player",
+    "no_player_found": "No player found!",
+    "private_account": "This player's account is private",
+    "name_required": "Name is required",
+    "name_min_length": "Player name must be 3 or more characters",
+    "level": "Level"
+  },
+  "item": {
+    "search_item": "Search Item",
+    "no_item_found": "No item found",
+    "no_item_available": "No items available in this category.",
+    "renew_in": "Renew in {{time}}",
+    "variations": "Variations"
+  },
+  "news": {
+    "news": "News"
+  },
+  "map": {
+    "map": "Map"
+  },
+  "banners": {
+    "banners": "Banners"
+  },
+  "shop": {
+    "item_shop": "Item Shop"
+  },
+  "error": {
+    "language_not_available": "The requested language is not available at the moment.",
+    "fill_all_fields": "Please fill in all form information."
+  },
+  "game_modes": {
+    "solo": "Solo",
+    "duo": "Duo",
+    "trio": "Trio",
+    "squad": "Squad"
+  },
+  "navigation": {
+    "back_to_main_category": "Back to main category"
+  },
+  "status": {
+    "wins": "Wins",
+    "winRate": "Win Rate",
+    "matches": "Matches",
+    "minutesPlayed": "Minutes Played",
+    "lastUpdate": "Last Update"
+  }
+}

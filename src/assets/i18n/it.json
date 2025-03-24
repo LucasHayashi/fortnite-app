@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "Condividi",
+    "description": "Descrizione",
+    "added_on": "Aggiunto il",
+    "language": "Lingua",
+    "expand_image": "Espandi immagine",
+    "category": "Categoria",
+    "select_page": "Seleziona pagina",
+    "expand": "Espandi",
+    "type": "Tipo",
+    "launch": "Avvia",
+    "favorite": "Preferito {{appName}}",
+    "restart": "Riavvia",
+    "search": "Cerca",
+    "close": "Chiudi"
+  },
+  "player": {
+    "enter_player_name": "Inserisci il nome del giocatore",
+    "player_name": "Nome giocatore",
+    "search": "Cerca giocatore",
+    "no_player_found": "Nessun giocatore trovato!",
+    "private_account": "L'account di questo giocatore è privato",
+    "name_required": "Il nome è obbligatorio",
+    "name_min_length": "Il nome del giocatore deve contenere almeno 3 caratteri",
+    "level": "Livello"
+  },
+  "item": {
+    "search_item": "Cerca oggetto",
+    "no_item_found": "Nessun oggetto trovato",
+    "no_item_available": "Nessun oggetto disponibile in questa categoria.",
+    "renew_in": "Rinnova tra {{time}}",
+    "variations": "Variazioni"
+  },
+  "news": {
+    "news": "Notizie"
+  },
+  "map": {
+    "map": "Mappa"
+  },
+  "banners": {
+    "banners": "Banner"
+  },
+  "shop": {
+    "item_shop": "Negozio di oggetti"
+  },
+  "error": {
+    "language_not_available": "La lingua richiesta non è disponibile al momento.",
+    "fill_all_fields": "Si prega di compilare tutte le informazioni del modulo."
+  },
+  "game_modes": {
+    "solo": "Solo",
+    "duo": "Duo",
+    "trio": "Trio",
+    "squad": "Squadra"
+  },
+  "navigation": {
+    "back_to_main_category": "Torna alla categoria principale"
+  },
+  "status": {
+    "wins": "Vittorie",
+    "winRate": "Percentuale di vittorie",
+    "matches": "Partite",
+    "minutesPlayed": "Minuti giocati",
+    "lastUpdate": "Ultimo aggiornamento"
+  }
+}

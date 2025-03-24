@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { IPlayerStats } from 'src/app/interfaces/player-stats';
 import { ISearchPlayer } from 'src/app/interfaces/search-player';
@@ -25,7 +26,8 @@ export class PlayerStatsComponent {
 
   constructor(
     private _fortniteService: FortniteService,
-    private _snackBarService: SnackbarService
+    private _snackBarService: SnackbarService,
+    private _translateService: TranslateService
   ) {}
 
   onSubmit(event: Event) {
@@ -48,7 +50,7 @@ export class PlayerStatsComponent {
                   response.result === false
                 ) {
                   this._snackBarService.openSnackBar(
-                    'A conta deste jogador é privada'
+                    this._translateService.instant('player.private_account')
                   );
                   this.nameInput.nativeElement.focus();
                   this.playerStats$ = of(null);
@@ -61,13 +63,15 @@ export class PlayerStatsComponent {
               })
             );
         } else {
-          this._snackBarService.openSnackBar('Nenhum jogador encontrado!');
+          this._snackBarService.openSnackBar(
+            this._translateService.instant('player.no_player_found')
+          );
           this.nameInput.nativeElement.focus();
         }
       });
     } else {
       this._snackBarService.openSnackBar(
-        'Preencha todas informações do formulário'
+        this._translateService.instant('error.fill_all_fields')
       );
     }
   }

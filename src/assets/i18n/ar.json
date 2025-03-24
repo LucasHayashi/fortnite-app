@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "مشاركة",
+    "description": "وصف",
+    "added_on": "تمت الإضافة في",
+    "language": "لغة",
+    "expand_image": "توسيع الصورة",
+    "category": "فئة",
+    "select_page": "حدد الصفحة",
+    "expand": "توسيع",
+    "type": "اكتب",
+    "launch": "إطلاق",
+    "favorite": "يفضل {{appName}}",
+    "restart": "اعادة تشغيل",
+    "search": "بحث",
+    "close": "إغلاق"
+  },
+  "player": {
+    "enter_player_name": "أدخل اسم اللاعب",
+    "player_name": "اسم اللاعب",
+    "search": "البحث عن لاعب",
+    "no_player_found": "لم يتم العثور على لاعب!",
+    "private_account": "حساب هذا اللاعب خاص",
+    "name_required": "الاسم مطلوب",
+    "name_min_length": "يجب أن يتكون اسم اللاعب من 3 أحرف أو أكثر",
+    "level": "مستوى"
+  },
+  "item": {
+    "search_item": "بحث العنصر",
+    "no_item_found": "لا يوجد عنصر متاح",
+    "no_item_available": "لا توجد عناصر متوفرة في هذه الفئة.",
+    "renew_in": "تجدد في {{time}}",
+    "variations": "الاختلافات"
+  },
+  "news": {
+    "news": "أخبار"
+  },
+  "map": {
+    "map": "خريطة"
+  },
+  "banners": {
+    "banners": "لافتات"
+  },
+  "shop": {
+    "item_shop": "متجر البند"
+  },
+  "error": {
+    "language_not_available": "اللغة المطلوبة غير متوفرة حاليًا.",
+    "fill_all_fields": "املأ جميع معلومات النموذج."
+  },
+  "game_modes": {
+    "solo": "منفرد",
+    "duo": "ثنائي",
+    "trio": "ثلاثي",
+    "squad": "فرقة"
+  },
+  "navigation": {
+    "back_to_main_category": "العودة إلى الفئة الرئيسية"
+  },
+  "status": {
+    "wins": "انتصارات",
+    "winRate": "نسبة الفوز",
+    "matches": "مباريات",
+    "minutesPlayed": "دقائق اللعب",
+    "lastUpdate": "آخر تحديث"
+  }
+}

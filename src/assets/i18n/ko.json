@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "공유하다",
+    "description": "설명",
+    "added_on": "에 추가됨",
+    "language": "언어",
+    "expand_image": "이미지 확장",
+    "category": "범주",
+    "select_page": "페이지를 선택하십시오",
+    "expand": "넓히다",
+    "type": "유형",
+    "launch": "시작",
+    "favorite": "가장 좋아하는 {{appName}}",
+    "restart": "재시작",
+    "search": "찾다",
+    "close": "닫기"
+  },
+  "player": {
+    "enter_player_name": "플레이어 이름을 입력하세요",
+    "player_name": "플레이어 이름",
+    "search": "플레이어 검색",
+    "no_player_found": "플레이어를 찾을 수 없습니다!",
+    "private_account": "이 플레이어의 계정은 비공개입니다",
+    "name_required": "이름은 필수입니다",
+    "name_min_length": "플레이어 이름은 3자 이상이어야 합니다.",
+    "level": "수준"
+  },
+  "item": {
+    "search_item": "아이템 검색",
+    "no_item_found": "아이템을 찾을 수 없음",
+    "no_item_available": "이 카테고리에는 사용 가능한 항목이 없습니다.",
+    "renew_in": "갱신 {{time}}",
+    "variations": "변형"
+  },
+  "news": {
+    "news": "소식"
+  },
+  "map": {
+    "map": "지도"
+  },
+  "banners": {
+    "banners": "배너"
+  },
+  "shop": {
+    "item_shop": "아이템 샵"
+  },
+  "error": {
+    "language_not_available": "요청하신 언어는 현재 사용할 수 없습니다.",
+    "fill_all_fields": "모든 양식 정보를 입력하십시오."
+  },
+  "game_modes": {
+    "solo": "솔로",
+    "duo": "듀오",
+    "trio": "트리오",
+    "squad": "스쿼드"
+  },
+  "navigation": {
+    "back_to_main_category": "메인 카테고리로 돌아가기"
+  },
+  "status": {
+    "wins": "승리",
+    "winRate": "승률",
+    "matches": "일치",
+    "minutesPlayed": "재생 시간(분)",
+    "lastUpdate": "마지막 업데이트"
+  }
+}

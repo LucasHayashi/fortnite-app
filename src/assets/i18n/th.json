@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "แบ่งปัน",
+    "description": "คำอธิบาย",
+    "added_on": "เพิ่มเมื่อ",
+    "language": "ภาษา",
+    "expand_image": "ขยายรูปภาพ",
+    "category": "หมวดหมู่",
+    "select_page": "เลือกหน้า",
+    "expand": "ขยาย",
+    "type": "พิมพ์",
+    "launch": "เปิด",
+    "favorite": "รายการโปรด {{appName}}",
+    "restart": "เริ่มต้นใหม่",
+    "search": "ค้นหา",
+    "close": "ปิด"
+  },
+  "player": {
+    "enter_player_name": "ใส่ชื่อผู้เล่น",
+    "player_name": "ชื่อผู้เล่น",
+    "search": "ค้นหาผู้เล่น",
+    "no_player_found": "ไม่พบผู้เล่น!",
+    "private_account": "บัญชีของผู้เล่นนี้เป็นส่วนตัว",
+    "name_required": "ต้องระบุชื่อ",
+    "name_min_length": "ชื่อผู้เล่นต้องมีอย่างน้อย 3 ตัวอักษร",
+    "level": "ระดับ"
+  },
+  "item": {
+    "search_item": "ค้นหารายการ",
+    "no_item_found": "ไม่พบรายการ",
+    "no_item_available": "ไม่มีรายการในหมวดหมู่นี้",
+    "renew_in": "ต่ออายุใน {{time}}",
+    "variations": "รูปแบบต่างๆ"
+  },
+  "news": {
+    "news": "ข่าว"
+  },
+  "map": {
+    "map": "แผนที่"
+  },
+  "banners": {
+    "banners": "ป้าย"
+  },
+  "shop": {
+    "item_shop": "ร้านค้าไอเทม"
+  },
+  "error": {
+    "language_not_available": "ภาษาที่ร้องขอไม่พร้อมใช้งานในขณะนี้",
+    "fill_all_fields": "กรุณากรอกข้อมูลในแบบฟอร์มทั้งหมด"
+  },
+  "game_modes": {
+    "solo": "เดี่ยว",
+    "duo": "คู่",
+    "trio": "สาม",
+    "squad": "ทีม"
+  },
+  "navigation": {
+    "back_to_main_category": "กลับไปที่หมวดหมู่หลัก"
+  },
+  "status": {
+    "wins": "ชนะ",
+    "winRate": "อัตราการชนะ",
+    "matches": "การแข่งขัน",
+    "minutesPlayed": "นาทีที่เล่น",
+    "lastUpdate": "อัพเดทล่าสุด"
+  }
+}

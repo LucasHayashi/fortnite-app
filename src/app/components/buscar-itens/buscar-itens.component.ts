@@ -18,6 +18,7 @@ import { FortniteItem } from 'src/app/models/FortniteItem';
 import { FortniteService } from 'src/app/services/fortnite.service';
 import { ModalExpandirItemComponent } from '../modals/modal-expandir-item/modal-expandir-item.component';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-buscar-itens',
@@ -37,8 +38,10 @@ export class BuscarItensComponent {
     map((response) => response.data ?? []),
     map((items) => this.listaDeItemsParaItem(items)),
     catchError((error: HttpErrorResponse) => {
-      if (error.status === 404 || error.status === 500) {
-        this._snackbarService.openSnackBar('Nenhum item encontrado');
+      if (error.status === 404) {
+        this._snackbarService.openSnackBar(
+          this._translateService.instant('item.no_item_found')
+        );
         return of([]);
       } else {
         throw new Error(error.message);
@@ -73,6 +76,7 @@ export class BuscarItensComponent {
   constructor(
     private _fortniteService: FortniteService,
     private _snackbarService: SnackbarService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _translateService: TranslateService
   ) {}
 }

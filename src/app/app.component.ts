@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { LoadingService } from './services/loading.service';
+import { LanguageService } from './services/language.service';
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { ILanguage } from './interfaces/language';
 
 export type LinkType = 'linkedin' | 'whatsapp' | 'github' | 'twitter';
 
@@ -12,15 +16,15 @@ export type LinkType = 'linkedin' | 'whatsapp' | 'github' | 'twitter';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'fornite-app';
   navItems = [
-    { link: '', title: 'Loja de Itens', icon: 'storefront' },
-    { link: 'buscar-jogador', title: 'Buscar Jogador', icon: 'sports_esports' },
-    { link: 'buscar-itens', title: 'Buscar Itens', icon: 'search' },
-    { link: 'noticias', title: 'Notícias', icon: 'newspaper' },
-    { link: 'mapa', title: 'Mapa', icon: 'map' },
-    { link: 'banners', title: 'Banners', icon: 'interests' },
+    { link: '', title: 'shop.item_shop', icon: 'storefront' },
+    { link: 'buscar-jogador', title: 'player.search', icon: 'sports_esports' },
+    { link: 'buscar-itens', title: 'item.search_item', icon: 'search' },
+    { link: 'noticias', title: 'news.news', icon: 'newspaper' },
+    { link: 'mapa', title: 'map.map', icon: 'map' },
+    { link: 'banners', title: 'banners.banners', icon: 'interests' },
   ];
 
   mode: MatDrawerMode;
@@ -28,11 +32,17 @@ export class AppComponent implements OnInit {
   projectUrl: string = window.location.origin;
   isLoading$ = this.loadingService.loading$;
 
+  availableLanguages: ILanguage[] = [];
+  selectedLanguageCode = '';
+  private languageSubscription: Subscription | undefined;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
-    public loadingService: LoadingService
+    public loadingService: LoadingService,
+    private languageService: LanguageService,
+    public translateService: TranslateService
   ) {
     const icons = [
       { name: 'github', url: './assets/svg/icons8-github.svg' },
@@ -62,6 +72,18 @@ export class AppComponent implements OnInit {
         this.isMobile = false;
       }
     });
+
+    this.availableLanguages = this.languageService.getLanguages();
+    this.languageSubscription = this.languageService.currentLanguage$.subscribe(
+      (language) => {
+        this.selectedLanguageCode = language.code;
+        this.translateService.use(language.code);
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.languageSubscription?.unsubscribe();
   }
 
   openLink(type: LinkType): void {
@@ -77,6 +99,11 @@ export class AppComponent implements OnInit {
 
   shareOnSocialMedia(type: LinkType): void {
     this.openLink(type);
+  }
+
+  changeLanguage(languageCode: string): void {
+    this.languageService.setLanguage(languageCode);
+    this.translateService.use(languageCode);
   }
 
   onNavItemClick(drawer: MatDrawer) {

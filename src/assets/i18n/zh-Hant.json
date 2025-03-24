@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "分享",
+    "description": "描述",
+    "added_on": "添加於",
+    "language": "語言",
+    "expand_image": "展開圖片",
+    "category": "類別",
+    "select_page": "選擇頁面",
+    "expand": "展開",
+    "type": "類型",
+    "launch": "啟動",
+    "favorite": "收藏 {{appName}}",
+    "restart": "重新啟動",
+    "search": "搜尋",
+    "close": "關閉"
+  },
+  "player": {
+    "enter_player_name": "輸入玩家名稱",
+    "player_name": "玩家名稱",
+    "search": "搜尋玩家",
+    "no_player_found": "未找到玩家！",
+    "private_account": "該玩家的帳戶是私有的",
+    "name_required": "名稱為必填項",
+    "name_min_length": "玩家名稱必須至少包含 3 個字元",
+    "level": "等級"
+  },
+  "item": {
+    "search_item": "搜尋物品",
+    "no_item_found": "未找到物品",
+    "no_item_available": "此類別中沒有可用物品。",
+    "renew_in": "續訂時間 {{time}}",
+    "variations": "變化"
+  },
+  "news": {
+    "news": "新聞"
+  },
+  "map": {
+    "map": "地圖"
+  },
+  "banners": {
+    "banners": "橫幅"
+  },
+  "shop": {
+    "item_shop": "物品商店"
+  },
+  "error": {
+    "language_not_available": "請求的語言目前不可用。",
+    "fill_all_fields": "請填寫所有表格資訊。"
+  },
+  "game_modes": {
+    "solo": "單人",
+    "duo": "雙人",
+    "trio": "三人",
+    "squad": "小隊"
+  },
+  "navigation": {
+    "back_to_main_category": "返回主類別"
+  },
+  "status": {
+    "wins": "勝利",
+    "winRate": "勝率",
+    "matches": "比賽",
+    "minutesPlayed": "分鐘遊戲",
+    "lastUpdate": "最後更新"
+  }
+}

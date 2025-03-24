@@ -125,14 +125,6 @@ export class ShopComponent implements OnInit, OnDestroy {
     }
   }
 
-  compareCategories(c1: IDataShopCategory, c2: IDataShopCategory): boolean {
-    return c1 && c2 && c1.name === c2.name;
-  }
-
-  compareSubCategories(c1: IDataShopCategory, c2: IDataShopCategory): boolean {
-    return c1 && c2 && c1.name === c2.name;
-  }
-
   atualizarTempoRestante(): void {
     const agoraUTC = new Date().getTime();
     const amanhaUTC = new Date();

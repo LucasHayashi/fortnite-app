@@ -2,18 +2,19 @@
 <div mat-dialog-content>
   <div class="header-container">
     <div class="info-section">
-      <div class="info-title">Descrição</div>
+      <div class="info-title">{{ "shared.description" | translate }}</div>
       <div class="info-line">{{ data.description }}</div>
     </div>
     <div class="info-section">
-      <div class="info-title">Lançamento</div>
+      <div class="info-title">{{ "shared.launch" | translate }}</div>
       <div class="info-line">{{ data.introduction?.text }}</div>
       <div class="info-line">
-        Adicionado em {{ data.added | date : "dd/MM/yyyy HH:mm:ss" }}
+        {{ "shared.added_on" | translate }}
+        {{ data.added | date : "dd/MM/yyyy HH:mm:ss" }}
       </div>
     </div>
     <div class="info-section">
-      <div class="info-title">Tipo</div>
+      <div class="info-title">{{ "shared.type" | translate }}</div>
       <div class="info-line">{{ data.type?.displayValue }}</div>
     </div>
   </div>
@@ -35,7 +36,7 @@
     </ng-template>
   </div>
   <div class="info-section" *ngIf="data.variants">
-    <div class="info-title">Variações</div>
+    <div class="info-title">{{ "item.variations" | translate }}</div>
     <div class="variacao-container" *ngFor="let variacao of data.variants">
       <h3 class="tipo-variacao">{{ variacao.type }}</h3>
       <div class="variacoes-imagem-container">
@@ -61,5 +62,5 @@
   </div>
 </div>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Fechar</button>
+  <button mat-button mat-dialog-close>{{ "shared.close" | translate }}</button>
 </mat-dialog-actions>

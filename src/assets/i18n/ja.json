@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "共有",
+    "description": "説明",
+    "added_on": "追加日",
+    "language": "言語",
+    "expand_image": "画像を拡大",
+    "category": "カテゴリー",
+    "select_page": "ページを選択",
+    "expand": "拡大",
+    "type": "タイプ",
+    "launch": "発売",
+    "favorite": "お気に入り {{appName}}",
+    "restart": "再起動",
+    "search": "検索",
+    "close": "閉じる"
+  },
+  "player": {
+    "enter_player_name": "プレイヤー名を入力してください",
+    "player_name": "プレイヤー名",
+    "search": "プレイヤーを検索",
+    "no_player_found": "プレイヤーが見つかりません！",
+    "private_account": "このプレイヤーのアカウントは非公開です",
+    "name_required": "名前は必須です",
+    "name_min_length": "プレイヤー名は3文字以上である必要があります",
+    "level": "レベル"
+  },
+  "item": {
+    "search_item": "アイテムを検索",
+    "no_item_found": "アイテムが見つかりません",
+    "no_item_available": "このカテゴリで利用可能なアイテムはありません。",
+    "renew_in": "更新 {{time}}",
+    "variations": "バリエーション"
+  },
+  "news": {
+    "news": "ニュース"
+  },
+  "map": {
+    "map": "地図"
+  },
+  "banners": {
+    "banners": "バナー"
+  },
+  "shop": {
+    "item_shop": "アイテムショップ"
+  },
+  "error": {
+    "language_not_available": "要求された言語は現在利用できません。",
+    "fill_all_fields": "すべてのフォーム情報を入力してください。"
+  },
+  "game_modes": {
+    "solo": "ソロ",
+    "duo": "デュオ",
+    "trio": "トリオ",
+    "squad": "分隊"
+  },
+  "navigation": {
+    "back_to_main_category": "メインカテゴリに戻る"
+  },
+  "status": {
+    "wins": "勝利数",
+    "winRate": "勝率",
+    "matches": "試合数",
+    "minutesPlayed": "プレイ時間（分）",
+    "lastUpdate": "最終更新"
+  }
+}

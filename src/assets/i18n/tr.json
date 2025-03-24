@@ -1,0 +1,66 @@
+{
+  "shared": {
+    "share": "Paylaş",
+    "description": "Açıklama",
+    "added_on": "Eklenme tarihi",
+    "language": "Dil",
+    "expand_image": "Resmi Büyüt",
+    "category": "Kategori",
+    "select_page": "Sayfa seç",
+    "expand": "Genişlet",
+    "type": "Tür",
+    "launch": "Başlat",
+    "favorite": "Favori {{appName}}",
+    "restart": "Yeniden Başlat"
+  },
+  "player": {
+    "enter_player_name": "Oyuncu adını girin",
+    "player_name": "Oyuncu adı",
+    "search": "Oyuncu Ara",
+    "no_player_found": "Oyuncu bulunamadı!",
+    "private_account": "Bu oyuncunun hesabı gizli",
+    "name_required": "Ad gerekli",
+    "name_min_length": "Oyuncu adı en az 3 karakter olmalıdır",
+    "level": "Seviye"
+  },
+  "item": {
+    "search_item": "Öğe Ara",
+    "no_item_found": "Öğe bulunamadı",
+    "no_item_available": "Bu kategoride mevcut öğe yok.",
+    "renew_in": "Yenileme süresi {{time}}",
+    "variations": "Varyasyonlar"
+  },
+  "news": {
+    "news": "Haberler"
+  },
+  "map": {
+    "map": "Harita"
+  },
+  "banners": {
+    "banners": "Bannerlar"
+  },
+  "shop": {
+    "item_shop": "Öğe Mağazası"
+  },
+  "error": {
+    "language_not_available": "İstenen dil şu anda mevcut değil.",
+    "fill_all_fields": "Lütfen tüm form bilgilerini doldurun."
+  },
+  "game_modes": {
+    "solo": "Solo",
+    "duo": "Duo",
+    "trio": "Trio",
+    "squad": "Takım"
+  },
+  "navigation": {
+    "back_to_main_category": "Ana kategoriye geri dön"
+  },
+  "status": {
+    "search": "Ara",
+    "wins": "Galibiyetler",
+    "winRate": "Kazanma Oranı",
+    "matches": "Maçlar",
+    "minutesPlayed": "Oynanan Dakika",
+    "lastUpdate": "Son Güncelleme"
+  }
+}

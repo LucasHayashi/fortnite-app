@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "Поделиться",
+    "description": "Описание",
+    "added_on": "Добавлено",
+    "language": "Язык",
+    "expand_image": "Развернуть изображение",
+    "category": "Категория",
+    "select_page": "Выберите страницу",
+    "expand": "Развернуть",
+    "type": "Тип",
+    "launch": "Запуск",
+    "favorite": "Избранное {{appName}}",
+    "restart": "Перезапустить",
+    "search": "Поиск",
+    "close": "Закрыть"
+  },
+  "player": {
+    "enter_player_name": "Введите имя игрока",
+    "player_name": "Имя игрока",
+    "search": "Найти игрока",
+    "no_player_found": "Игрок не найден!",
+    "private_account": "Аккаунт этого игрока является приватным",
+    "name_required": "Имя обязательно",
+    "name_min_length": "Имя игрока должно содержать не менее 3 символов",
+    "level": "Уровень"
+  },
+  "item": {
+    "search_item": "Найти предмет",
+    "no_item_found": "Предмет не найден",
+    "no_item_available": "В этой категории нет доступных предметов.",
+    "renew_in": "Обновить через {{time}}",
+    "variations": "Вариации"
+  },
+  "news": {
+    "news": "Новости"
+  },
+  "map": {
+    "map": "Карта"
+  },
+  "banners": {
+    "banners": "Баннеры"
+  },
+  "shop": {
+    "item_shop": "Магазин предметов"
+  },
+  "error": {
+    "language_not_available": "Запрошенный язык в данный момент недоступен.",
+    "fill_all_fields": "Пожалуйста, заполните всю информацию в форме."
+  },
+  "game_modes": {
+    "solo": "Соло",
+    "duo": "Дуо",
+    "trio": "Трио",
+    "squad": "Отряд"
+  },
+  "navigation": {
+    "back_to_main_category": "Вернуться в основную категорию"
+  },
+  "status": {
+    "wins": "Победы",
+    "winRate": "Процент побед",
+    "matches": "Матчи",
+    "minutesPlayed": "Сыгранные минуты",
+    "lastUpdate": "Последнее обновление"
+  }
+}

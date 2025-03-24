@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "Bagikan",
+    "description": "Deskripsi",
+    "added_on": "Ditambahkan pada",
+    "language": "Bahasa",
+    "expand_image": "Perbesar Gambar",
+    "category": "Kategori",
+    "select_page": "Pilih halaman",
+    "expand": "Perbesar",
+    "type": "Jenis",
+    "launch": "Luncurkan",
+    "favorite": "Favorit {{appName}}",
+    "restart": "Mulai Ulang",
+    "search": "Cari",
+    "close": "Tutup"
+  },
+  "player": {
+    "enter_player_name": "Masukkan nama pemain",
+    "player_name": "Nama pemain",
+    "search": "Cari Pemain",
+    "no_player_found": "Tidak ada pemain yang ditemukan!",
+    "private_account": "Akun pemain ini bersifat pribadi",
+    "name_required": "Nama wajib diisi",
+    "name_min_length": "Nama pemain minimal 3 karakter atau lebih",
+    "level": "Tingkat"
+  },
+  "item": {
+    "search_item": "Cari Item",
+    "no_item_found": "Tidak ada item yang ditemukan",
+    "no_item_available": "Tidak ada item yang tersedia dalam kategori ini.",
+    "renew_in": "Perbarui dalam {{time}}",
+    "variations": "Variasi"
+  },
+  "news": {
+    "news": "Berita"
+  },
+  "map": {
+    "map": "Peta"
+  },
+  "banners": {
+    "banners": "Spanduk"
+  },
+  "shop": {
+    "item_shop": "Toko Barang"
+  },
+  "error": {
+    "language_not_available": "Bahasa yang diminta tidak tersedia saat ini.",
+    "fill_all_fields": "Silakan isi semua informasi formulir."
+  },
+  "game_modes": {
+    "solo": "Solo",
+    "duo": "Duo",
+    "trio": "Trio",
+    "squad": "Skuad"
+  },
+  "navigation": {
+    "back_to_main_category": "Kembali ke kategori utama"
+  },
+  "status": {
+    "wins": "Kemenangan",
+    "winRate": "Tingkat Kemenangan",
+    "matches": "Pertandingan",
+    "minutesPlayed": "Menit Bermain",
+    "lastUpdate": "Pembaruan Terakhir"
+  }
+}

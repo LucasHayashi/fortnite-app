@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-content>
       <mat-form-field appearance="fill">
-        <mat-label>Nome do jogador</mat-label>
+        <mat-label>{{ "player.player_name" | translate }}</mat-label>
         <input
           matInput
           formControlName="name"
@@ -19,12 +19,12 @@
         >
           <mat-icon>close</mat-icon>
         </button>
-        <mat-hint>Digite o nome de um jogador</mat-hint>
+        <mat-hint>{{ "player.enter_player_name" | translate }}</mat-hint>
         <mat-error *ngIf="playerForm.get('name')?.hasError('required')">
-          O nome é <strong>obrigatório</strong>
+          {{ "player.name_required" | translate }}
         </mat-error>
         <mat-error *ngIf="playerForm.get('name')?.hasError('minlength')">
-          O nome do jogador deve possuir <strong>3 ou mais caracteres</strong>
+          {{ "player.name_min_length" | translate }}
         </mat-error>
       </mat-form-field>
 
@@ -38,7 +38,9 @@
       </mat-radio-group>
 
       <div class="button-container">
-        <button mat-raised-button color="accent" type="submit">Buscar</button>
+        <button mat-raised-button color="accent" type="submit">
+          {{ "shared.search" | translate }}
+        </button>
       </div>
     </mat-card-content>
   </mat-card>
@@ -48,7 +50,9 @@
   <mat-card class="player-stats">
     <mat-card-content>
       <h1>{{ playerStats.name }}</h1>
-      <div>Nível {{ playerStats.account.level }}</div>
+      <div>
+        {{ "player.level" | translate }} {{ playerStats.account.level }}
+      </div>
       <mat-progress-bar
         mode="determinate"
         color="accent"
@@ -60,19 +64,19 @@
   <mat-accordion>
     <app-mode-panel
       [playerStats]="playerStats.global_stats.solo"
-      playerMode="Solo"
+      [playerMode]="'game_modes.solo' | translate"
     ></app-mode-panel>
     <app-mode-panel
       [playerStats]="playerStats.global_stats.duo"
-      playerMode="Duo"
+      [playerMode]="'game_modes.duo' | translate"
     ></app-mode-panel>
     <app-mode-panel
       [playerStats]="playerStats.global_stats.trio"
-      playerMode="Trio"
+      [playerMode]="'game_modes.trio' | translate"
     ></app-mode-panel>
     <app-mode-panel
       [playerStats]="playerStats.global_stats.squad"
-      playerMode="Squad"
+      [playerMode]="'game_modes.squad' | translate"
     ></app-mode-panel>
   </mat-accordion>
 </ng-container>

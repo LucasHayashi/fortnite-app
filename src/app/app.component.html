@@ -14,12 +14,27 @@
           [routerLinkActiveOptions]="{ exact: true }"
           (click)="onNavItemClick(drawer)"
         >
-          {{ navItem.title }}
+          {{ navItem.title | translate }}
           <button mat-icon-button matListItemMeta>
             <mat-icon>{{ navItem.icon }}</mat-icon>
           </button>
         </a>
       </ng-container>
+      <mat-divider></mat-divider>
+      <mat-form-field appearance="outline" class="language-select">
+        <mat-label>{{ "shared.language" | translate }}</mat-label>
+        <mat-select
+          [value]="selectedLanguageCode"
+          (selectionChange)="changeLanguage($event.value)"
+        >
+          <mat-option
+            *ngFor="let lang of availableLanguages"
+            [value]="lang.code"
+          >
+            {{ lang.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </mat-nav-list>
   </mat-drawer>
 
@@ -28,13 +43,17 @@
       <button (click)="drawer.toggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Fortnite App</span>
+      <a routerLink="/" class="app-title">
+        <span class="title">Fortnite App</span>
+      </a>
       <span class="spacer"></span>
       <button
         mat-icon-button
         class="star-icon"
         (click)="openLink('github')"
-        matTooltip="Star Fortnite App"
+        matTooltip="{{
+          'shared.favorite' | translate : { appName: 'Fortnite App' }
+        }}"
         matTooltipPosition="below"
       >
         <mat-icon svgIcon="github"></mat-icon>
@@ -42,7 +61,7 @@
       <button
         mat-icon-button
         [matMenuTriggerFor]="menu"
-        matTooltip="Compartilhar"
+        matTooltip="{{ 'shared.share' | translate }}"
         matTooltipPosition="below"
       >
         <mat-icon>share</mat-icon>

@@ -37,10 +37,15 @@
 
     <div class="item-details">
       <p *ngIf="item.description">
-        <strong class="detail-label">Descrição:</strong> {{ item.description }}
+        <strong class="detail-label"
+          >{{ "shared.description" | translate }}:</strong
+        >
+        {{ item.description }}
       </p>
       <p *ngIf="item.added">
-        <strong class="detail-label">Adicionado em:</strong>
+        <strong class="detail-label"
+          >{{ "shared.added_on" | translate }}:</strong
+        >
         {{ item.added | date : "dd/MM/yyyy" }}
       </p>
       <p *ngIf="item.bpm">

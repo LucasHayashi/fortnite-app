@@ -34,7 +34,7 @@ export class BannersComponent implements OnInit {
 
     this.dialog.afterOpened.subscribe((data) => {
       const img = new Image();
-      img.src = data.componentInstance.data.images.icon;
+      img.src = data.componentInstance.data?.images?.icon;
       img.onload = function (event: Event) {
         const root: HTMLStyleElement | null = document.querySelector(':root');
         const loadedImage = event.currentTarget as HTMLImageElement;

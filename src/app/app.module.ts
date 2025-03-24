@@ -9,7 +9,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { NoticiasComponent } from './components/noticias/noticias.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { NoticiaComponent } from './components/noticias/noticia/noticia.component';
 import { ModalExpandirImagemComponent } from './components/modals/modal-expandir-imagem/modal-expandir-imagem.component';
 import { ModalExpandirIconeComponent } from './components/modals/modal-expandir-icone/modal-expandir-icone.component';
@@ -29,6 +33,13 @@ import { ModalExpandirItemShopComponent } from './components/modals/modal-expand
 import { BackgroundStyleDirective } from './directives/background-style.directive';
 import { GenericItemComponent } from './components/modals/modal-expandir-item-shop/generic-item/generic-item.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LanguageErrorInterceptor } from './interceptors/language-error.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
   color: 'accent',
@@ -65,6 +76,14 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     ReactiveFormsModule,
     FormsModule,
     LayoutModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'en',
+    }),
   ],
   providers: [
     {
@@ -74,6 +93,11 @@ const formFieldDefaultOptions: MatFormFieldDefaultOptions = {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageErrorInterceptor,
       multi: true,
     },
   ],

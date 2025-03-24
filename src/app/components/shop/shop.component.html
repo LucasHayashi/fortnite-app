@@ -2,11 +2,13 @@
   <!-- Cabeçalho com título e tempo de renovação -->
   <header class="shop-header">
     <div class="title-section">
-      <h1 class="mat-headline-4 m-0">Loja de Itens</h1>
+      <h1 class="mat-headline-4 m-0">{{ "shop.item_shop" | translate }}</h1>
       <mat-chip-set>
         <mat-chip highlighted color="accent" class="timer-chip">
           <mat-icon>timer</mat-icon>
-          <span>Renova em {{ tempoRestante }}</span>
+          <span>{{
+            "item.renew_in" | translate : { time: tempoRestante }
+          }}</span>
         </mat-chip>
       </mat-chip-set>
     </div>
@@ -18,7 +20,7 @@
       <div class="category-navigation-container">
         <div class="category-selector">
           <mat-form-field appearance="outline" color="accent" class="w-100">
-            <mat-label>Categoria</mat-label>
+            <mat-label>{{ "shared.category" | translate }}</mat-label>
             <mat-select
               [(value)]="selectedCategoryIndex"
               (selectionChange)="onCategoryChanged()"
@@ -132,9 +134,9 @@
         <mat-icon class="empty-icon text-secondary" aria-hidden="true"
           >shopping_basket</mat-icon
         >
-        <p class="mat-body-1">Nenhum item disponível nesta categoria.</p>
+        <p class="mat-body-1">{{ "item.no_item_available" | translate }}</p>
         <button mat-flat-button color="primary" (click)="resetSelection()">
-          Voltar para categoria principal
+          {{ "navigation.back_to_main_category" | translate }}
         </button>
       </mat-card-content>
     </mat-card>

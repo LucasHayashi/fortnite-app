@@ -1,0 +1,67 @@
+{
+  "shared": {
+    "share": "Chia sẻ",
+    "description": "Mô tả",
+    "added_on": "Đã thêm vào",
+    "language": "Ngôn ngữ",
+    "expand_image": "Mở rộng ảnh",
+    "category": "Danh mục",
+    "select_page": "Chọn trang",
+    "expand": "Mở rộng",
+    "type": "Loại",
+    "launch": "Khởi chạy",
+    "favorite": "Yêu thích {{appName}}",
+    "restart": "Khởi động lại",
+    "search": "Tìm kiếm",
+    "close": "Kapat"
+  },
+  "player": {
+    "enter_player_name": "Nhập tên người chơi",
+    "player_name": "Tên người chơi",
+    "search": "Tìm kiếm người chơi",
+    "no_player_found": "Không tìm thấy người chơi!",
+    "private_account": "Tài khoản của người chơi này riêng tư",
+    "name_required": "Tên là bắt buộc",
+    "name_min_length": "Tên người chơi phải có ít nhất 3 ký tự",
+    "level": "Cấp độ"
+  },
+  "item": {
+    "search_item": "Tìm kiếm vật phẩm",
+    "no_item_found": "Không tìm thấy vật phẩm",
+    "no_item_available": "Không có vật phẩm nào trong danh mục này.",
+    "renew_in": "Gia hạn sau {{time}}",
+    "variations": "Các biến thể"
+  },
+  "news": {
+    "news": "Tin tức"
+  },
+  "map": {
+    "map": "Bản đồ"
+  },
+  "banners": {
+    "banners": "Biểu ngữ"
+  },
+  "shop": {
+    "item_shop": "Cửa hàng vật phẩm"
+  },
+  "error": {
+    "language_not_available": "Ngôn ngữ được yêu cầu hiện không có sẵn.",
+    "fill_all_fields": "Vui lòng điền đầy đủ thông tin vào biểu mẫu."
+  },
+  "game_modes": {
+    "solo": "Solo",
+    "duo": "Duo",
+    "trio": "Trio",
+    "squad": "Squad"
+  },
+  "navigation": {
+    "back_to_main_category": "Quay lại danh mục chính"
+  },
+  "status": {
+    "wins": "Số trận thắng",
+    "winRate": "Tỷ lệ thắng",
+    "matches": "Số trận đấu",
+    "minutesPlayed": "Số phút đã chơi",
+    "lastUpdate": "Cập nhật lần cuối"
+  }
+}
